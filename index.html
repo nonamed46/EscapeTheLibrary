@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+
+  <title>Phimesto</title>
+  <meta name="description" content="eine basic HTML Vorlage">
+  <meta name="author" content="Josef">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <script src="script.js"></script>
+  <div id="header-bar">
+    <p>Phimesto | Design out of this World.</p>
+  </div>
+  <div id="div-left">
+    <p>Hey this is the left div</p>
+    <img src="images/zahnrad.png" alt="zahnrad" id="image1">
+    <br><br>
+    <button id="pausebtn1" onclick="pause1()">pause</button>
+  </div>
+  <div id="div-right">
+    <p>hey this is the right div</p>
+    <img src="images/zahnrad.png" alt="zahnrad" id="image2">
+    <br><br>
+    <button id="pausebtn2" onclick="pause2()">pause</button>
+  </div>
+  <div id="unten">
+    <div id="button-game">
+      <div class="game-btn">
+        <p id="gbtn1" onclick="g1()">m</p>
+      </div>
+      <div class="game-btn">
+        <p id="gbtn2" onclick="g2()">e</p>
+      </div>
+      <div class="game-btn">
+        <p id="gbtn3" onclick="g3()">p</p>
+      </div>
+      <div class="game-btn">
+        <p id="gbtn4" onclick="g4()">h</p>
+      </div>
+      <div class="game-btn">
+        <p id="gbtn5" onclick="g5()">i</p>
+      </div>
+      <div class="game-btn">
+        <p id="gbtn6" onclick="g6()">s</p>
+      </div>
+      <div class="game-btn">
+        <p id="gbtn7" onclick="g7()">t</p>
+      </div>
+      <div class="game-btn">
+        <p id="gbtn8" onclick="g8()">o</p>
+      </div>
+      <div class="game-btn">
+        <p id="gbtn9" onclick="g9()">!</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="s_game">
+    <div id="s_announcer-container">
+      <div id="s_announcer" class="neutral">
+        Anno.
+      </div>
+    </div>
+
+    <div id="s_button-container">
+      <button id="sbtn0" onclick="say('red')"type="button" class="red s_button">red</button>
+      <button id="sbtn0" onclick="say('green')"type="button"class="green s_button">green</button>
+      <button id="sbtn0" onclick="say('blue')"type="button"class="blue s_button">blue</button>
+      <button id="sbtn0" onclick="say('yellow')"type="button"class="yellow s_button">yellow</button>
+      <button id="sbtn0" onclick="say('orange')"type="button"class="orange s_button">orange</button>
+      <button id="sbtn0" onclick="say('turquoise')"type="button"class="turquoise s_button">turquoise</button>
+    </div>
+  </div>
+
+  <!-- Hier werden die weiteren Rätsel zwischengespeichert. -->
+  <div id="hiddenStorage" class="hidden">
+
+  </div>
+  <div id="audio">
+    <!--<audio id="audio_01" src="http://www.soundjay.com/button/beep-01.wav" autoplay="false" ></audio>-->
+    <audio id="audio_01" src="sounds/btn/button-01.wav" preload="auto" autoplay="false" ></audio>
+    <audio id="audio_02" src="sounds/btn/button-02.wav" preload="auto" autoplay="false" ></audio>
+    <audio id="audio_03" src="sounds/btn/button-03.wav" preload="auto" autoplay="false" ></audio>
+    <audio id="audio_04" src="sounds/btn/button-04.wav" preload="auto" autoplay="false" ></audio>
+    <audio id="audio_05" src="sounds/btn/button-05.wav" preload="auto" autoplay="false" ></audio>
+    <audio id="audio_06" src="sounds/btn/button-06.wav" preload="auto" autoplay="false" ></audio>
+    <audio id="audio_07" src="sounds/btn/button-07.wav" preload="auto" autoplay="false" ></audio>
+    <audio id="audio_failed" src="sounds/btn/button-10.wav" preload="auto" autoplay="false" ></audio>
+  </div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+/*defines Video size for better visual control*/
+img:hover{
+}
+
+#header-bar{
+	width: 100%;
+	background-color: green;
+	height: 8%;
+	font-size: 25pt;
+}
+
+#div-left{
+	float:left;
+	width: 50%;
+	background-color: blue;
+	color:white;
+}
+#div-right{
+	float:left;
+	width: 50%;
+	background-color: red;
+}
+#unten{
+	float: left;
+	width: 100%;
+	background-color: yellow;
+}
+.activated{
+	background-color: green
+}
+.activated:hover{
+	background-color: lightgreen;
+	cursor: pointer;
+}
+.game-btn{
+	float:left;
+	width: 5%;
+	height: 5%;
+	margin-left: 2%;
+	background-color: grey;
+	border: 2px solid black;
+	text-align: center;
+}
+.game-btn:hover{
+	background-color: lightgrey;
+	cursor: pointer;
+}
+
+/* rotating images */
+#pausebtn1{
+	font-size: 50pt;
+}
+#pausebtn2{
+	font-size: 50pt;
+}
+
+#image1{
+	animation: rotation-left 30s infinite linear;
+}
+#image1.paused1{
+	animation-play-state:paused;
+}
+#image2{
+	align: right;
+	animation: rotation-right 30s infinite linear;
+}
+#image2.paused2{
+	animation-play-state:paused;
+}
+
+/* Animations */
+@keyframes rotation-left{
+	from {
+		transform: translate(-50%,0px) rotate(0deg);
+	}
+	to{
+		transform: translate(-50%,0px) rotate(359deg);
+	}
+}
+@keyframes rotation-right{
+	from {
+		transform:translate(+50%,0px) rotate(0deg);
+	}
+	to{
+		transform:translate(+50%,0px) rotate(-359deg);
+	}
+}
+
+/*hides object. Used for not yet accessible video items
+and for hidden div in which Overlay elements are stored invisible*/
+.hidden{
+	display:none;
+}
+
+/*-------------- simon says --------------*/
+/* Answers */
+.red{background-color: red;}
+.green{background-color:green; color: lightgrey;}
+.blue{background-color: blue; color: lightgrey;}
+.yellow{background-color: yellow;}
+.orange{background-color: orange;}
+.turquoise{background-color: turquoise;}
+.neutral{background-color: grey;}
+
+.s_button{
+	min-width: 10%;
+	width: 10%;
+	min-height: 20%;
+	height: 20%;
+}
+/* Announcer */
+#s_announcer-container{
+	min-width: 100%;
+	min-height: 10%;
+	background-color: lightgrey;
+}
+#s_announcer{
+	/*min-width: 5%;*/
+	width: 50%;
+	/*min-height: 5%;*/
+	height: 50%;
+	text-align: center;
+	font-size: 30pt;
+}
