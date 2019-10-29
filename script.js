@@ -200,8 +200,8 @@ var slot06;
 var slot07;
 var slot08;
 var slot09;
-//(collapsed)sets variables to the according elements by id for usage in other functions.
-function implementVars(){
+//sets variables to the according elements by id for usage in other functions.
+/*function implementVars(){
   img01 = document.getElementById('pgi_01');
   img02 = document.getElementById('pgi_02');
   img03 = document.getElementById('pgi_03');
@@ -221,11 +221,30 @@ function implementVars(){
   slot07 = document.getElementById('pg7');
   slot08 = document.getElementById('pg8');
   slot09 = document.getElementById('pg9');
-}
+}*/
 
 //Setup pushing game.
 function setupPushingGame(){
-  implementVars();
+  img01 = document.getElementById('pgi_01');
+  img02 = document.getElementById('pgi_02');
+  img03 = document.getElementById('pgi_03');
+  img04 = document.getElementById('pgi_04');
+  img05 = document.getElementById('pgi_05');
+  img06 = document.getElementById('pgi_06');
+  img07 = document.getElementById('pgi_07');
+  img08 = document.getElementById('pgi_08');
+  img09 = document.getElementById('pgi_09');
+
+  slot01 = document.getElementById('pg1');
+  slot02 = document.getElementById('pg2');
+  slot03 = document.getElementById('pg3');
+  slot04 = document.getElementById('pg4');
+  slot05 = document.getElementById('pg5');
+  slot06 = document.getElementById('pg6');
+  slot07 = document.getElementById('pg7');
+  slot08 = document.getElementById('pg8');
+  slot09 = document.getElementById('pg9');
+
   slot01.append(img04);
   slot02.append(img08);
   slot03.append(img07);
@@ -241,3 +260,4 @@ function setupPushingGame(){
 
 /*---------------------- START ----------------------*/
 runCurrentStage();
+setupPushingGame();
