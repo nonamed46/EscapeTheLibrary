@@ -92,7 +92,10 @@ and for hidden div in which Overlay elements are stored invisible*/
 	display:none;
 }
 
-/*-------------- simon says --------------*/
+
+
+
+/*---------------------- simon says ----------------------*/
 /* Answers */
 .red{background-color: red;}
 .green{background-color:green; color: lightgrey;}
