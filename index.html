@@ -16,50 +16,6 @@
   <div id="header-bar">
     <p>Phimesto | Design out of this World.</p>
   </div>
-  <!--
-  <div id="div-left">
-    <p>Hey this is the left div</p>
-    <img src="images/zahnrad.png" alt="zahnrad" id="image1">
-    <br><br>
-    <button id="pausebtn1" onclick="pause1()">pause</button>
-  </div>
-  <div id="div-right">
-    <p>hey this is the right div</p>
-    <img src="images/zahnrad.png" alt="zahnrad" id="image2">
-    <br><br>
-    <button id="pausebtn2" onclick="pause2()">pause</button>
-  </div>
-  <div id="unten">
-    <div id="button-game">
-      <div class="game-btn">
-        <p id="gbtn1" onclick="g1()">m</p>
-      </div>
-      <div class="game-btn">
-        <p id="gbtn2" onclick="g2()">e</p>
-      </div>
-      <div class="game-btn">
-        <p id="gbtn3" onclick="g3()">p</p>
-      </div>
-      <div class="game-btn">
-        <p id="gbtn4" onclick="g4()">h</p>
-      </div>
-      <div class="game-btn">
-        <p id="gbtn5" onclick="g5()">i</p>
-      </div>
-      <div class="game-btn">
-        <p id="gbtn6" onclick="g6()">s</p>
-      </div>
-      <div class="game-btn">
-        <p id="gbtn7" onclick="g7()">t</p>
-      </div>
-      <div class="game-btn">
-        <p id="gbtn8" onclick="g8()">o</p>
-      </div>
-      <div class="game-btn">
-        <p id="gbtn9" onclick="g9()">!</p>
-      </div>
-    </div>
-  </div>-->
 
   <div id="s_game">
     <div id="s_announcer-container">
@@ -67,6 +23,34 @@
         Anno.
       </div>
     </div>
+
+    <svg class="simon-svg" viewbox="0 0 800 800">
+      <g class="svg_button" class="clickable" cursor="pointer" pointer-events="all">
+        <g class="svg-background">
+          <path d="M50 275 L300 275 L250 425 Z" fill="red" stroke="black"/>
+        </g>
+      </g>
+      <g class="svg_button" class="clickable" cursor="pointer" pointer-events="all">
+        <g class="svg-background">
+          <path d="M400 50 L300 275 L500 275 Z" fill="green"stroke="black"/>
+        </g>
+      </g>
+      <g class="svg_button" class="clickable" cursor="pointer" pointer-events="all">
+        <g class="svg-background">
+          <path d="M500 275 L750 275 L550 425 Z" fill="blue"stroke="black"/>
+        </g>
+      </g>
+      <g class="svg_button" class="clickable" cursor="pointer" pointer-events="all">
+        <g class="svg-background">
+          <path d="M650 700 L400 530 L550 425 Z" fill="orange"stroke="black"/>
+        </g>
+      </g>
+      <g class="svg_button" class="clickable" cursor="pointer" pointer-events="all">
+        <g class="svg-background">
+          <path d="M175 700 L400 530 L250 425 Z" fill="turquoise"stroke="black"/>
+        </g>
+      </g>
+    </svg>
 
     <div id="s_button-container">
       <button id="sbtn0" onclick="say('red')"type="button" class="red s_button">red</button>

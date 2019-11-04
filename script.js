@@ -1,4 +1,5 @@
 //Animation Funktionen
+/*
 function pause1() {
   console.log("pause image 1");
   document.getElementById('image1').classList.toggle('paused1');
@@ -7,38 +8,7 @@ function pause2() {
   console.log("pause img 2");
   document.getElementById('image2').classList.toggle('paused2');
 }
-
-// Button Funktionen
-function g1(){
-  document.getElementById('gbtn1').classList.toggle('activated');
-}
-function g2(){
-  document.getElementById('gbtn2').classList.toggle('activated');
-}
-function g3(){
-  document.getElementById('gbtn3').classList.toggle('activated');
-}
-function g4(){
-  document.getElementById('gbtn4').classList.toggle('activated');
-}
-function g5(){
-  document.getElementById('gbtn5').classList.toggle('activated');
-}
-function g6(){
-  document.getElementById('gbtn6').classList.toggle('activated');
-}
-function g7(){
-  document.getElementById('gbtn7').classList.toggle('activated');
-}
-function g8(){
-  document.getElementById('gbtn8').classList.toggle('activated');
-}
-function g9(){
-  document.getElementById('gbtn9').classList.toggle('activated');
-}
-
-
-
+*/
 /*---------------------- simon says ----------------------*/
 //audio Vars:
 var sound_01;
@@ -60,6 +30,7 @@ function playSound(col){
   sound_06 = document.getElementById('audio_06');
   sound_07 = document.getElementById('audio_07');
   sound_failed = document.getElementById('audio_failed');
+  /*
   switch (col) {
     case "red":
       sound_01.play();
@@ -85,6 +56,7 @@ function playSound(col){
     default:
       sound_failed.play();
   }
+  */
 }
 
 /* Color Pool:
