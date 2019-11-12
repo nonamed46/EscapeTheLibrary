@@ -22,14 +22,14 @@ var sound_failed;
 
 //Plays Sound based on color input.
 function playSound(col){
-  sound_01 = document.getElementById('audio_01');
-  sound_02 = document.getElementById('audio_02');
-  sound_03 = document.getElementById('audio_03');
-  sound_04 = document.getElementById('audio_04');
-  sound_05 = document.getElementById('audio_05');
-  sound_06 = document.getElementById('audio_06');
-  sound_07 = document.getElementById('audio_07');
-  sound_failed = document.getElementById('audio_failed');
+  sound_01 = $("#audio_01");
+  sound_02 = $("#audio_02");
+  sound_03 = $("#audio_03");
+  sound_04 = $("#audio_04");
+  sound_05 = $("#audio_05");
+  sound_06 = $("#audio_06");
+  sound_07 = $("#audio_07");
+  sound_failed = $("#audio_failed");
   /*
   switch (col) {
     case "red":
@@ -129,6 +129,7 @@ function say(col){
 //Switches on the StageID to set the next stage.
 function completeStage(){
   console.log("Stage Completed! "+currentStageID);
+  
   switch (currentStageID) {
     case 0:
       currentStage = stage_01;
@@ -151,92 +152,96 @@ function completeStage(){
 
 
 /*---------------------- pushing game ----------------------*/
-
-//img and slot varibale declarations.
-var img01;
-var img02;
-var img03;
-var img04;
-var img05;
-var img06;
-var img07;
-var img08;
-var img09;
-
-var slot01;
-var slot02;
-var slot03;
-var slot04;
-var slot05;
-var slot06;
-var slot07;
-var slot08;
-var slot09;
-//sets variables to the according elements by id for usage in other functions.
-/*function implementVars(){
-  img01 = document.getElementById('pgi_01');
-  img02 = document.getElementById('pgi_02');
-  img03 = document.getElementById('pgi_03');
-  img04 = document.getElementById('pgi_04');
-  img05 = document.getElementById('pgi_05');
-  img06 = document.getElementById('pgi_06');
-  img07 = document.getElementById('pgi_07');
-  img08 = document.getElementById('pgi_08');
-  img09 = document.getElementById('pgi_09');
-
-  slot01 = document.getElementById('pg1');
-  slot02 = document.getElementById('pg2');
-  slot03 = document.getElementById('pg3');
-  slot04 = document.getElementById('pg4');
-  slot05 = document.getElementById('pg5');
-  slot06 = document.getElementById('pg6');
-  slot07 = document.getElementById('pg7');
-  slot08 = document.getElementById('pg8');
-  slot09 = document.getElementById('pg9');
-}*/
-
+//slot content 3x3 map (012 345 678)
+var slotContent = ["#pgi_04","#pgi_08","#pgi_07","#pgi_02","#pgi_06","#pgi_05","#pgi_09","#pgi_01",".empty"];
+//winning setting. for easy checking
+var slotFinal = ["#pgi_01","#pgi_02",".empty","#pgi_04","#pgi_05","#pgi_06","#pgi_07","#pgi_08","#pgi_09"];
+var currImageID;
+var currentSlot;
+var ph0;//placeholders
+var ph1;
+var done = false;
+var arrEquals = false;
 //Setup pushing game.
 function setupPushingGame(){
-  img01 = document.getElementById('pgi_01');
-  img02 = document.getElementById('pgi_02');
-  img03 = document.getElementById('pgi_03');
-  img04 = document.getElementById('pgi_04');
-  img05 = document.getElementById('pgi_05');
-  img06 = document.getElementById('pgi_06');
-  img07 = document.getElementById('pgi_07');
-  img08 = document.getElementById('pgi_08');
-  img09 = document.getElementById('pgi_09');
 
-  slot01 = document.getElementById('pg1');
-  slot02 = document.getElementById('pg2');
-  slot03 = document.getElementById('pg3');
-  slot04 = document.getElementById('pg4');
-  slot05 = document.getElementById('pg5');
-  slot06 = document.getElementById('pg6');
-  slot07 = document.getElementById('pg7');
-  slot08 = document.getElementById('pg8');
-  slot09 = document.getElementById('pg9');
-
-  slot01.append(img04);
-  slot02.append(img08);
-  slot03.append(img07);
-  slot04.append(img02);
-  slot05.append(img06);
-  slot06.append(img05);
-  slot07.append(img09);
-  slot08.append(img01);
-  slot09.append(img0);
+  $("#pg1").append($("#pgi_04"));
+  $("#pg2").append($("#pgi_08"));
+  $("#pg3").append($("#pgi_07"));
+  $("#pg4").append($("#pgi_02"));
+  $("#pg5").append($("#pgi_06"));
+  $("#pg6").append($("#pgi_05"));
+  $("#pg7").append($("#pgi_09"));
+  $("#pg8").append($("#pgi_01"));
+  //$("#pg9").append($("#pgi_03"));
 }
-
-
-
+function selectSlot(id){
+  switch (slotContent.indexOf(id)) {
+    case 0:
+      return "#pg1";
+    case 1:
+      return "#pg2";
+    case 2:
+      return "#pg3";
+    case 3:
+      return "#pg4";
+    case 4:
+      return "#pg5";
+    case 5:
+      return "#pg6";
+    case 6:
+      return "#pg7";
+    case 7:
+      return "#pg8";
+    case 8:
+      return "#pg9";
+  }
+}
+function compareArrays(){
+  for(i = 0; i < slotContent.length; i++){
+    if (slotContent[i] != slotFinal[i]){
+      console.log(slotContent[i]);
+      console.log(slotFinal[i]);
+      return false;
+    }
+  }
+  return true;
+}
 /*---------------------- START ----------------------*/
 $(document).ready(function(){
-  $('#sbtn0').on("click", function(){say("red")});
-  $('#sbtn1').on("click", function(){say("green")});
-  $('#sbtn2').on("click", function(){say("blue")});
-  $('#sbtn3').on("click", function(){say("orange")});
-  $('#sbtn4').on("click", function(){say("turquoise")});
+  /* Simon says controls*/
+  $('#sbtn0').on("click", function(){say("red");});
+  $('#sbtn1').on("click", function(){say("green");});
+  $('#sbtn2').on("click", function(){say("blue");});
+  $('#sbtn3').on("click", function(){say("orange");});
+  $('#sbtn4').on("click", function(){say("turquoise");});
+
+  /* pushgame controls*/
+  $('.pg-img').on("click", function(evt){
+    if(!done){
+      currImageID = evt.target.id; //Get the ID of the clicked element
+      console.log(currImageID);
+      currentSlot = selectSlot("#"+currImageID); //get the current slot based on that ID
+      console.log(currentSlot);
+      $(".empty").append($("#"+currImageID)); //move Image to empty slot
+      $(".empty").removeClass("empty"); //remove Empty class form container.
+      $(currentSlot).addClass("empty"); //add Empty class to old image location as new empty slot.
+
+      ph0 = slotContent.indexOf("#"+currImageID);
+      ph1 = slotContent.indexOf(".empty");
+      slotContent[ph0] = ".empty";
+      slotContent[ph1] = "#"+currImageID;
+      console.log(slotContent);
+
+      if(compareArrays()){
+        done = true;
+        $("#pg3").append($("#pgi_03"));
+      }
+      console.log(done);
+    }
+  });
+
+  setupPushingGame();
+  runCurrentStage();
+
 });
-runCurrentStage();
-setupPushingGame();
