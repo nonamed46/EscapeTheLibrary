@@ -68,10 +68,27 @@ orange
 turquoise
 neutral
 */
+/*
 var stage_00 = ["red","blue","red"];
 var stage_01 = ["red","green","orange","blue"];
-var stage_02 = ["turquoise","yellow","blue","yellow","red"];
-var stage_03 = ["blue","green","orange","yellow","blue","green","blue"];
+var stage_02 = ["turquoise","green","blue","orange","red"];
+var stage_03 = ["blue","green","orange","turquoise","blue","green","blue"];
+var stage_04 = ["red","blue","red"];
+var stage_05 = ["red","green","orange","blue"];
+var stage_06 = ["turquoise","green","blue","orange","red"];
+var stage_07 = ["blue","green","orange","turquoise","blue","green","blue"];
+*/
+var stage_00 = ["red","blue","red"];
+var stage_01 = ["green","orange", "green"];
+var stage_02 = ["blue","turquoise", "blue"];
+var stage_03 = ["orange", "red", "orange"];
+var stage_04 = ["turquoise", "green", "turquoise"];
+var stage_05 = ["red","blue","red"];
+var stage_06 = ["green","orange", "green"];
+var stage_07 = ["blue","turquoise", "blue"];
+
+
+
 //Announcer Output
 var currentStage = stage_00;
 var currentStageID = 0;
@@ -129,7 +146,7 @@ function say(col){
 //Switches on the StageID to set the next stage.
 function completeStage(){
   console.log("Stage Completed! "+currentStageID);
-  
+  setupPushingGame(currentStageID);
   switch (currentStageID) {
     case 0:
       currentStage = stage_01;
@@ -144,8 +161,25 @@ function completeStage(){
       currentStageID++;
       break;
     case 3:
-      currentStage = stage_03;
+      currentStage = stage_04;
       currentStageID++;
+      break;
+    case 4:
+      currentStage = stage_05;
+      currentStageID++;
+      break;
+    case 5:
+      currentStage = stage_06;
+      currentStageID++;
+      break;
+    case 6:
+      currentStage = stage_07;
+      currentStageID++;
+      break;
+    case 7:
+      //currentStage = stage_08;
+      currentStageID++;
+      clearInterval(switchTimer);
       break;
   }
 }
@@ -163,8 +197,34 @@ var ph1;
 var done = false;
 var arrEquals = false;
 //Setup pushing game.
-function setupPushingGame(){
-
+function setupPushingGame(id){
+  switch (id) {
+    case 0:
+      $("#pg1").append($("#pgi_04"));
+      break;
+    case 1:
+      $("#pg2").append($("#pgi_08"));
+      break;
+    case 2:
+      $("#pg3").append($("#pgi_07"));
+      break;
+    case 3:
+      $("#pg4").append($("#pgi_02"));
+      break;
+    case 4:
+      $("#pg5").append($("#pgi_06"));
+      break;
+    case 5:
+      $("#pg6").append($("#pgi_05"));
+      break;
+    case 6:
+      $("#pg7").append($("#pgi_09"));
+      break;
+    case 7:
+      $("#pg8").append($("#pgi_01"));
+      break;
+  }
+  /*
   $("#pg1").append($("#pgi_04"));
   $("#pg2").append($("#pgi_08"));
   $("#pg3").append($("#pgi_07"));
@@ -173,7 +233,7 @@ function setupPushingGame(){
   $("#pg6").append($("#pgi_05"));
   $("#pg7").append($("#pgi_09"));
   $("#pg8").append($("#pgi_01"));
-  //$("#pg9").append($("#pgi_03"));
+  */
 }
 function selectSlot(id){
   switch (slotContent.indexOf(id)) {
@@ -241,7 +301,7 @@ $(document).ready(function(){
     }
   });
 
-  setupPushingGame();
+  //setupPushingGame();
   runCurrentStage();
 
 });
