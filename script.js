@@ -232,11 +232,11 @@ function setupPushingGame(){
 
 /*---------------------- START ----------------------*/
 $(document).ready(function(){
-  $('#sbtn0').on("click", say("red"));
-  $('#sbtn1').on("click", say("green"));
-  $('#sbtn2').on("click", say("blue"));
-  $('#sbtn3').on("click", say("orange"));
-  $('#sbtn4').on("click", say("turquoise"));
+  $('#sbtn0').on("click", function(){say("red")});
+  $('#sbtn1').on("click", function(){say("green")});
+  $('#sbtn2').on("click", function(){say("blue")});
+  $('#sbtn3').on("click", function(){say("orange")});
+  $('#sbtn4').on("click", function(){say("turquoise")});
 });
 runCurrentStage();
 setupPushingGame();
