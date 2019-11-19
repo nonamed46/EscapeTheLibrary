@@ -113,6 +113,8 @@ and for hidden div in which Overlay elements are stored invisible*/
 #gmap_canvas{
 	margin: 0 auto;
 	display: block;
+	height: 40vh;
+	width: 40vh;
 }
 
 svg {
@@ -125,7 +127,7 @@ svg {
 #pg-table{
 	margin: 0 auto;
 	width: auto;
-	min-width: 50%;
+	min-width: 20%;
 	max-height: 50%;
 	max-width: 99%
 

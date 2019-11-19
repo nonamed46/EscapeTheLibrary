@@ -180,6 +180,9 @@ function completeStage(){
       //currentStage = stage_08;
       currentStageID++;
       clearInterval(switchTimer);
+      clearTimeout(pauseTimer);
+      document.getElementById('s_announcer').classList.replace(currentColor,'neutral');
+      currentColor = 'neutral';
       break;
   }
 }
