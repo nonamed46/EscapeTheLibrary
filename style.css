@@ -1,5 +1,8 @@
 img:hover{
 }
+body{
+	background-color: lightgrey;
+}
 
 #header-bar{
 	width: 100%;
@@ -124,6 +127,7 @@ svg {
 }
 
 /*---------------------- Schieberaetsel ----------------------*/
+
 #pg-table{
 	margin: 0 auto;
 	width: auto;
@@ -135,11 +139,18 @@ svg {
 img.pg-img{
 	cursor: pointer;
 	width:auto;
-	height: auto;
+	height: 40vh/3;
 	max-width: 100%;
+	/* make image not selectable*/
+	-moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 table{
 	border-spacing: 0px;
+	background-color: white;
 }
 td,tr{
 	border-spacing: 0px;
