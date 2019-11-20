@@ -63,21 +63,21 @@ function playSound(col){
 red
 green
 blue
-yellow
 orange
 turquoise
 neutral
 */
-/*
+
 var stage_00 = ["red","blue","red"];
-var stage_01 = ["red","green","orange","blue"];
+var stage_01 = ["red","green","blue","red"];
 var stage_02 = ["turquoise","green","blue","orange","red"];
 var stage_03 = ["blue","green","orange","turquoise","blue","green","blue"];
 var stage_04 = ["red","blue","red"];
 var stage_05 = ["red","green","orange","blue"];
 var stage_06 = ["turquoise","green","blue","orange","red"];
 var stage_07 = ["blue","green","orange","turquoise","blue","green","blue"];
-*/
+
+/*
 var stage_00 = ["red","blue","red"];
 var stage_01 = ["green","orange", "green"];
 var stage_02 = ["blue","turquoise", "blue"];
@@ -86,7 +86,7 @@ var stage_04 = ["turquoise", "green", "turquoise"];
 var stage_05 = ["red","blue","red"];
 var stage_06 = ["green","orange", "green"];
 var stage_07 = ["blue","turquoise", "blue"];
-
+*/
 
 
 //Announcer Output
@@ -100,6 +100,8 @@ var pauseTimer;
 var colorCounter;
 var color;
 
+var sg_input_enabled = false;
+var pg_input_enabled = false;
 //takes in the stage to play, resets the counter and begins the interval for changing announcer colors.
 function runCurrentStage(){
   //console.log("starting Stage" + currentStage);
@@ -116,8 +118,10 @@ function updateColor(){
     clearInterval(switchTimer);
     document.getElementById('s_announcer').classList.replace(currentColor,'neutral');
     currentColor = 'neutral';
+    sg_input_enabled = true;
     pauseTimer = setTimeout(runCurrentStage,6000);
   } else {
+    sg_input_enabled = false;
     color = currentStage[colorCounter];
     document.getElementById('s_announcer').classList.replace(currentColor,color);
     currentColor = color;
@@ -128,18 +132,20 @@ function updateColor(){
 
 //Button Input
 function say(col){
-  console.log(col);
-  currentInput++;
-  if (currentStage[currentInput] == col) {
-    //positiven sound abspielen?
-    console.log("richtig! " + currentInput);
-    if(currentInput == (currentStage.length-1)){
-      completeStage();
+  if(sg_input_enabled){
+    console.log(col);
+    currentInput++;
+    if (currentStage[currentInput] == col) {
+      //positiven sound abspielen?
+      console.log("richtig! " + currentInput);
+      if(currentInput == (currentStage.length-1)){
+        completeStage();
+      }
+    } else {
+      console.log("leider falsch :(");
+      currentInput = -1;
+      playSound("failed");
     }
-  } else {
-    console.log("leider falsch :(");
-    currentInput = -1;
-    playSound("failed");
   }
 }
 
@@ -183,6 +189,7 @@ function completeStage(){
       clearTimeout(pauseTimer);
       document.getElementById('s_announcer').classList.replace(currentColor,'neutral');
       currentColor = 'neutral';
+      pg_input_enabled = true;
       break;
   }
 }
@@ -281,7 +288,7 @@ $(document).ready(function(){
 
   /* pushgame controls*/
   $('.pg-img').on("click", function(evt){
-    if(!done){
+    if(!done && pg_input_enabled){
       currImageID = evt.target.id; //Get the ID of the clicked element
       console.log(currImageID);
       currentSlot = selectSlot("#"+currImageID); //get the current slot based on that ID
