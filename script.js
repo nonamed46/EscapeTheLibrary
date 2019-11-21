@@ -41,10 +41,10 @@ var stage_00 = ["red","blue","red"];
 var stage_01 = ["red","green","blue","red"];
 var stage_02 = ["turquoise","green","blue","orange","red"];
 var stage_03 = ["blue","green","orange","turquoise","blue","green","blue"];
-var stage_04 = ["red","blue","red"];
-var stage_05 = ["red","green","orange","blue"];
-var stage_06 = ["turquoise","green","blue","orange","red"];
-var stage_07 = ["blue","green","orange","turquoise","blue","green","blue"];
+var stage_04 = ["red","blue","red","green","orange","blue","turquoise"];
+var stage_05 = ["red","green","orange","blue","turquoise","green","blue","orange"];
+var stage_06 = ["turquoise","green","blue","orange","red","turquoise","green","blue","orange"];
+var stage_07 = ["blue","green","orange","turquoise","blue","green","blue","red","green","blue"];
 
 /*
 var stage_00 = ["red","blue","red"];
@@ -86,8 +86,9 @@ function updateColor(){
     clearInterval(switchTimer);
     document.getElementById('s_announcer').classList.replace(currentColor,'neutral');
     currentColor = 'neutral';
+    currentInput = -1;
     sg_input_enabled = true;
-    pauseTimer = setTimeout(runCurrentStage,6000);
+    pauseTimer = setTimeout(runCurrentStage,5000+(currentStageID*700));
   } else {
     sg_input_enabled = false;
     color = currentStage[colorCounter];
@@ -129,7 +130,7 @@ var winSoundTimer
 //Switches on the StageID to set the next stage.
 function completeStage(){
   console.log("Stage Completed! "+currentStageID);
-  winSoundTimer = setTimeout(playWinSound,800);
+  winSoundTimer = setTimeout(playWinSound,570);
   setupPushingGame(currentStageID);
   switch (currentStageID) {
     case 0:
