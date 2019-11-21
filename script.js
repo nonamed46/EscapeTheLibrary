@@ -1,62 +1,31 @@
-//Animation Funktionen
-/*
-function pause1() {
-  console.log("pause image 1");
-  document.getElementById('image1').classList.toggle('paused1');
-}
-function pause2() {
-  console.log("pause img 2");
-  document.getElementById('image2').classList.toggle('paused2');
-}
-*/
 /*---------------------- simon says ----------------------*/
-//audio Vars:
-var sound_01;
-var sound_02;
-var sound_03;
-var sound_04;
-var sound_05;
-var sound_06;
-var sound_07;
-var sound_failed;
-
 //Plays Sound based on color input.
 function playSound(col){
-  sound_01 = $("#audio_01");
-  sound_02 = $("#audio_02");
-  sound_03 = $("#audio_03");
-  sound_04 = $("#audio_04");
-  sound_05 = $("#audio_05");
-  sound_06 = $("#audio_06");
-  sound_07 = $("#audio_07");
-  sound_failed = $("#audio_failed");
-  /*
   switch (col) {
     case "red":
-      sound_01.play();
+      $("#audio_01")[0].play();
       break;
     case "green":
-      sound_02.play();
+      $("#audio_02")[0].play();
       break;
     case "blue":
-      sound_03.play();
+      $("#audio_03")[0].play();
       break;
     case "yellow":
-      sound_04.play();
+      $("#audio_04")[0].play();
       break;
     case "orange":
-      sound_05.play();
+      $("#audio_05")[0].play();
       break;
     case "turquoise":
-      sound_06.play();
+      $("#audio_06")[0].play();
       break;
     case "failed":
-      sound_failed.play();
+      $("#audio_failed")[0].play();
       break;
     default:
-      sound_failed.play();
+      $("#audio_failed")[0].play();
   }
-  */
 }
 
 /* Color Pool:
@@ -87,7 +56,6 @@ var stage_05 = ["red","blue","red"];
 var stage_06 = ["green","orange", "green"];
 var stage_07 = ["blue","turquoise", "blue"];
 */
-
 
 //Announcer Output
 var currentStage = stage_00;
@@ -136,10 +104,11 @@ function say(col){
     console.log(col);
     currentInput++;
     if (currentStage[currentInput] == col) {
-      //positiven sound abspielen?
+      playSound(col);
       console.log("richtig! " + currentInput);
       if(currentInput == (currentStage.length-1)){
         completeStage();
+        currentInput = -1;
       }
     } else {
       console.log("leider falsch :(");
@@ -148,10 +117,19 @@ function say(col){
     }
   }
 }
-
+//plays winning sound when stage is completed (called by a timeout delay)
+function playWinSound(){
+  if (currentStageID == 8) {
+    $("#win")[0].play();
+  } else {
+    $("#stg_complete")[0].play();
+  }
+};
+var winSoundTimer
 //Switches on the StageID to set the next stage.
 function completeStage(){
   console.log("Stage Completed! "+currentStageID);
+  winSoundTimer = setTimeout(playWinSound,800);
   setupPushingGame(currentStageID);
   switch (currentStageID) {
     case 0:
@@ -189,6 +167,7 @@ function completeStage(){
       clearTimeout(pauseTimer);
       document.getElementById('s_announcer').classList.replace(currentColor,'neutral');
       currentColor = 'neutral';
+      sg_input_enabled = false;
       pg_input_enabled = true;
       break;
   }
@@ -289,6 +268,7 @@ $(document).ready(function(){
   /* pushgame controls*/
   $('.pg-img').on("click", function(evt){
     if(!done && pg_input_enabled){
+      $("#move_tile")[0].play();
       currImageID = evt.target.id; //Get the ID of the clicked element
       console.log(currImageID);
       currentSlot = selectSlot("#"+currImageID); //get the current slot based on that ID
@@ -305,13 +285,20 @@ $(document).ready(function(){
 
       if(compareArrays()){
         done = true;
+        $("#win")[0].play();
         $("#pg3").append($("#pgi_03"));
       }
       console.log(done);
     }
   });
 
-  //setupPushingGame();
   runCurrentStage();
-
+  $("#audio_01")[0].volume = 0.5;
+  $("#audio_02")[0].volume = 0.5;
+  $("#audio_03")[0].volume = 0.5;
+  $("#audio_04")[0].volume = 0.5;
+  $("#audio_05")[0].volume = 0.5;
+  $("#audio_06")[0].volume = 0.5;
+  $("#audio_07")[0].volume = 0.5;
+  $("#audio_failed")[0].volume = 0.5;
 });
