@@ -78,8 +78,13 @@ and for hidden div in which Overlay elements are stored invisible*/
 	display:none;
 }
 
-
-
+/*------------------------- intro -------------------------*/
+#introimg{
+	float: left;
+}
+.intro{
+	width: 100vw;
+}
 
 /*---------------------- simon says ----------------------*/
 /* Answers */
@@ -156,4 +161,10 @@ td,tr{
 	border-spacing: 0px;
 	padding: 0px;
 	margin: 0px;
+}
+
+/*------------------------- Karte -------------------------*/
+.centered{
+	margin: 0 auto;
+	text-align: center;
 }
