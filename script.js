@@ -1,3 +1,11 @@
+/*---------------------- intro --------------------------*/
+//Executed when pressing "Play" button. hides Intro text and shows and starts "simon says" and the "pushing game" frame.
+function startGame(){
+  runCurrentStage();
+  $("#s_game").removeClass("hidden");
+  $("#pushing-game").removeClass("hidden");
+  $("#intro").addClass("hidden");
+}
 /*---------------------- simon says ----------------------*/
 //Plays Sound based on color input.
 function playSound(col){
@@ -37,6 +45,7 @@ turquoise
 neutral
 */
 
+/*
 var stage_00 = ["red","blue","red"];
 var stage_01 = ["red","green","blue","red"];
 var stage_02 = ["turquoise","green","blue","orange","red"];
@@ -45,8 +54,8 @@ var stage_04 = ["red","blue","red","green","orange","blue","turquoise"];
 var stage_05 = ["red","green","orange","blue","turquoise","green","blue","orange"];
 var stage_06 = ["turquoise","green","blue","orange","red","turquoise","green","blue","orange"];
 var stage_07 = ["blue","green","orange","turquoise","blue","green","blue","red","green","blue"];
+*/
 
-/*
 var stage_00 = ["red","blue","red"];
 var stage_01 = ["green","orange", "green"];
 var stage_02 = ["blue","turquoise", "blue"];
@@ -55,7 +64,7 @@ var stage_04 = ["turquoise", "green", "turquoise"];
 var stage_05 = ["red","blue","red"];
 var stage_06 = ["green","orange", "green"];
 var stage_07 = ["blue","turquoise", "blue"];
-*/
+
 
 //Announcer Output
 var currentStage = stage_00;
@@ -167,6 +176,8 @@ function completeStage(){
       clearInterval(switchTimer);
       clearTimeout(pauseTimer);
       document.getElementById('s_announcer').classList.replace(currentColor,'neutral');
+      $("#s_game").addClass("hidden");
+      $("#map_container").removeClass("hidden");
       currentColor = 'neutral';
       sg_input_enabled = false;
       pg_input_enabled = true;
@@ -257,6 +268,19 @@ function compareArrays(){
   }
   return true;
 }
+/*---------------------- Map / End Game ----------------------*/
+var pw1 = 31.200901;
+var pw2 = 29.909194;
+function checkPW(){
+  console.log();
+  if (($("#input1").val() == pw1) && ($("#input2").val() == pw2)) {
+    $("#win")[0].play();
+    $("#pushing-game").addClass("hidden");
+    $("#map_container").addClass("hidden");
+    $("#outro").removeClass("hidden");
+  }
+}
+
 /*---------------------- START ----------------------*/
 $(document).ready(function(){
   /* Simon says controls*/
@@ -293,7 +317,7 @@ $(document).ready(function(){
     }
   });
 
-  runCurrentStage();
+  //runCurrentStage(); //starting simon says
   $("#audio_01")[0].volume = 0.5;
   $("#audio_02")[0].volume = 0.5;
   $("#audio_03")[0].volume = 0.5;

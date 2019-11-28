@@ -15,19 +15,20 @@
 <body>
 
   <div id="header-bar">
-    <p>Phimesto Testseite| Platzhalter Ton kommt nach 1.Input</p>
+    <p>Phimesto Testseite</p>
   </div>
 
-  <div class="intro">
+  <div id="intro">
     <p>
       <img src="images/tel/tel_01.jpg" id="introimg">
-      Lorem ipsum bla bla, Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla 
+      Lorem ipsum bla bla, Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla
       Hier kommt die Story
-      Hier kommt ein Button <button type="button" name="play">play</button>
+      Hier kommt ein Button <br>
     </p>
+    <button id="playbtn" type="button" name="play" onclick="startGame()">play</button>
   </div>
 
-  <div id="s_game">
+  <div id="s_game" class="hidden">
     <div id="s_announcer-container">
       <div id="s_announcer" class="neutral">
         Folge meinem Beispiel.
@@ -67,7 +68,7 @@
   </div>
 
 
-  <div id="pushing-game">
+  <div id="pushing-game" class="hidden">
     <table id="pg-table">
       <tr>
         <td id="pg1"></td>
@@ -99,16 +100,16 @@
     <img src="images/pushgame/alex_07.jpg" alt="alexandria library 07" class="pg-img" id="pgi_07">
     <img src="images/pushgame/alex_08.jpg" alt="alexandria library 08" class="pg-img" id="pgi_08">
     <img src="images/pushgame/alex_09.jpg" alt="alexandria library 09" class="pg-img" id="pgi_09">
-  -->
-  <img src="images/tel/tel_01.jpg" alt="tel aviv library 01" class="pg-img" id="pgi_01">
-  <img src="images/tel/tel_02.jpg" alt="tel aviv library 02" class="pg-img" id="pgi_02">
-  <img src="images/tel/tel_03.jpg" alt="tel aviv library 03" class="pg-img" id="pgi_03">
-  <img src="images/tel/tel_04.jpg" alt="tel aviv library 04" class="pg-img" id="pgi_04">
-  <img src="images/tel/tel_05.jpg" alt="tel aviv library 05" class="pg-img" id="pgi_05">
-  <img src="images/tel/tel_06.jpg" alt="tel aviv library 06" class="pg-img" id="pgi_06">
-  <img src="images/tel/tel_07.jpg" alt="tel aviv library 07" class="pg-img" id="pgi_07">
-  <img src="images/tel/tel_08.jpg" alt="tel aviv library 08" class="pg-img" id="pgi_08">
-  <img src="images/tel/tel_09.jpg" alt="tel aviv library 09" class="pg-img" id="pgi_09">
+    -->
+    <img src="images/tel/tel_01.jpg" alt="tel aviv library 01" class="pg-img" id="pgi_01">
+    <img src="images/tel/tel_02.jpg" alt="tel aviv library 02" class="pg-img" id="pgi_02">
+    <img src="images/tel/tel_03.jpg" alt="tel aviv library 03" class="pg-img" id="pgi_03">
+    <img src="images/tel/tel_04.jpg" alt="tel aviv library 04" class="pg-img" id="pgi_04">
+    <img src="images/tel/tel_05.jpg" alt="tel aviv library 05" class="pg-img" id="pgi_05">
+    <img src="images/tel/tel_06.jpg" alt="tel aviv library 06" class="pg-img" id="pgi_06">
+    <img src="images/tel/tel_07.jpg" alt="tel aviv library 07" class="pg-img" id="pgi_07">
+    <img src="images/tel/tel_08.jpg" alt="tel aviv library 08" class="pg-img" id="pgi_08">
+    <img src="images/tel/tel_09.jpg" alt="tel aviv library 09" class="pg-img" id="pgi_09">
   </div>
   <div id="audio">
     <!--<audio id="audio_01" src="http://www.soundjay.com/button/beep-01.wav" autoplay="false" ></audio>-->
@@ -126,19 +127,28 @@
   </div>
 
 
-  <div class="wrapper">
+  <div id="map_container" class="wrapper hidden">
     <div class="centered">
-      <input type="text" name="coord1" value="">
-      <input type="text" name="coord2" value="">
-      <button type="button" name="pwbutton">send</button>
+      <input id="input1" type="text" name="coord1" value="">
+      <input id="input2" type="text" name="coord2" value="">
+      <button id="pwbtn" type="button" name="pwbutton" onclick="checkPW()">send</button>
       <br><br>
     </div>
-    <iframe id="gmap_canvas" src="https://www.openstreetmap.de/karte.html" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    <iframe id="gm1" class="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109179.94647997755!2d29.884846034145003!3d31.224238672397384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c49126710fd3%3A0xb4e0cda629ee6bb9!2sAlexandria%2C%20Gouvernement%20al-Iskandariyya%2C%20%C3%84gypten!5e0!3m2!1sde!2sde!4v1574953841876!5m2!1sde!2sde" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
     <!--<iframe id="gmap_canvas" src="https://www.openstreetmap.de/karte.html#" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>-->
   </div>
+
+  <div id="outro" class="hidden">
+    <br><br>
+    <iframe id="gm2" class="gmap_canvas hidden" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.715573959166!2d29.90704421547005!3d31.200898769968404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c38da1d9e919%3A0xf984e1832e425a82!2sGoethe-Institut%20German%20Cultural%20Center!5e0!3m2!1sde!2sde!4v1574954052622!5m2!1sde!2sde" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    <p>
+      <img src="images/tel/tel_04.jpg" id="introimg">
+      Lorem ipsum bla bla, Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla Lorem ipsum bla bla
+      Hier kommt die Story
+      Hier kommt ein Button <br>
+    </p>
   </div>
-
-
 
 </body>
 </html>

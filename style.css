@@ -82,8 +82,14 @@ and for hidden div in which Overlay elements are stored invisible*/
 #introimg{
 	float: left;
 }
-.intro{
-	width: 100vw;
+#intro{
+	width: 40vh;
+	margin: 0 auto;
+}
+
+#playbtn{
+	display: block;
+	margin: 0 auto;
 }
 
 /*---------------------- simon says ----------------------*/
@@ -116,13 +122,6 @@ and for hidden div in which Overlay elements are stored invisible*/
 	text-align: center;
 	margin: 0 auto;
 	font-size: 30pt;
-}
-
-#gmap_canvas{
-	margin: 0 auto;
-	display: block;
-	height: 40vh;
-	width: 40vh;
 }
 
 svg {
@@ -167,4 +166,23 @@ td,tr{
 .centered{
 	margin: 0 auto;
 	text-align: center;
+}
+.gmap_canvas{
+	margin: 0 auto;
+	display: block;
+	height: 40vh;
+	width: 40vh;
+}
+#input1{
+	border: 3px solid blue;
+	border-radius: 5px;
+}
+#input2{
+	border: 3px solid blue;
+	border-radius: 5px;
+}
+/*------------------------ Outro ------------------------*/
+#outro{
+	width: 40vh;
+	margin: 0 auto;
 }
