@@ -93,7 +93,7 @@ function updateColor(){
   if (colorCounter == currentStage.length) {
     //console.log("stage is done. resetting.");
     clearInterval(switchTimer);
-    document.getElementById('s_announcer').classList.replace(currentColor,'neutral');
+    $("#center_circle").attr('style', "fill:grey");
     currentColor = 'neutral';
     currentInput = -1;
     sg_input_enabled = true;
@@ -101,7 +101,7 @@ function updateColor(){
   } else {
     sg_input_enabled = false;
     color = currentStage[colorCounter];
-    document.getElementById('s_announcer').classList.replace(currentColor,color);
+    $("#center_circle").attr('style', "fill:"+color);
     currentColor = color;
     colorCounter++;
     playSound(currentColor);
@@ -175,7 +175,7 @@ function completeStage(){
       currentStageID++;
       clearInterval(switchTimer);
       clearTimeout(pauseTimer);
-      document.getElementById('s_announcer').classList.replace(currentColor,'neutral');
+      $("#center_circle").attr('style', "fill:grey");
       $("#s_game").addClass("hidden");
       $("#map_container").removeClass("hidden");
       currentColor = 'neutral';
