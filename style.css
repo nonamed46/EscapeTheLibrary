@@ -81,6 +81,8 @@ and for hidden div in which Overlay elements are stored invisible*/
 /*------------------------- intro -------------------------*/
 #introimg{
 	float: left;
+	margin-right: 15px;
+	margin-bottom: 5px;
 }
 #intro{
 	width: 40vh;
