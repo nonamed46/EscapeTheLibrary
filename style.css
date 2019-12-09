@@ -1,76 +1,19 @@
 img:hover{
 }
-body{
-	background-color: lightgrey;
+body,html {height:100%;overflow:hidden;}
+body {
+  width: 100%;
+  position: absolute;
+  background: linear-gradient(to bottom, #6e529d 0%,#d97b93 100%);
 }
 
 #header-bar{
 	width: 100%;
-	background-color: green;
-	height: 8%;
+	background-color: rgba(0,255,0,0.35);
+	height: auto;
+  border-radius: 5px;
 	font-size: 25pt;
 }
-
-#div-left{
-	float:left;
-	width: 50%;
-	background-color: blue;
-	color:white;
-}
-#div-right{
-	float:left;
-	width: 50%;
-	background-color: red;
-}
-#unten{
-	float: left;
-	width: 100%;
-	background-color: yellow;
-}
-
-/* rotating images */
-/*
-#pausebtn1{
-	font-size: 50pt;
-}
-#pausebtn2{
-	font-size: 50pt;
-}
-
-#image1{
-	animation: rotation-left 30s infinite linear;
-}
-#image1.paused1{
-	animation-play-state:paused;
-}
-#image2{
-	align: right;
-	animation: rotation-right 30s infinite linear;
-}
-#image2.paused2{
-	animation-play-state:paused;
-}
-*/
-
-/* Animations */
-/*
-@keyframes rotation-left{
-	from {
-		transform: translate(-50%,0px) rotate(0deg);
-	}
-	to{
-		transform: translate(-50%,0px) rotate(359deg);
-	}
-}
-@keyframes rotation-right{
-	from {
-		transform:translate(+50%,0px) rotate(0deg);
-	}
-	to{
-		transform:translate(+50%,0px) rotate(-359deg);
-	}
-}
-*/
 
 /*hides object. Used for not yet accessible video items
 and for hidden div in which Overlay elements are stored invisible*/
@@ -79,6 +22,10 @@ and for hidden div in which Overlay elements are stored invisible*/
 }
 
 /*------------------------- intro -------------------------*/
+.mySlides{
+  width: 40vh;
+}
+
 #introimg{
 	float: left;
 	margin-right: 15px;
@@ -87,6 +34,9 @@ and for hidden div in which Overlay elements are stored invisible*/
 #intro{
 	width: 40vh;
 	margin: 0 auto;
+  padding: 10px 10px;
+  border-radius: 5px;
+  background-color: rgba(180, 185, 194, 0.3);
 }
 
 #playbtn{
