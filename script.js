@@ -1,20 +1,4 @@
 /*---------------------- intro --------------------------*/
-//slideshow
-var slideIndex = 0;
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > x.length) {slideIndex = 1}
-  x[slideIndex-1].style.display = "block";
-  setTimeout(carousel, 2000); // Change image every 2 seconds
-}
-
 //Executed when pressing "Play" button. hides Intro text and shows and starts "simon says" and the "pushing game" frame.
 function startGame(){
   runCurrentStage();
@@ -299,6 +283,21 @@ function checkPW(){
 
 /*---------------------- START ----------------------*/
 $(document).ready(function(){
+  /* Setup Carousel */
+  var slideIndex = 0;
+  carousel();
+
+  function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1}
+    x[slideIndex-1].style.display = "block";
+    setTimeout(carousel, 3000); // Change image every 3 seconds
+  }
   /* Simon says controls*/
   $('#sbtn0').on("click", function(){say("red");});
   $('#sbtn1').on("click", function(){say("green");});
