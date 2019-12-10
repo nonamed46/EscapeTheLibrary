@@ -45,26 +45,14 @@ turquoise
 neutral
 */
 
-/*
-var stage_00 = ["red","blue","red"];
-var stage_01 = ["red","green","blue","red"];
-var stage_02 = ["turquoise","green","blue","orange","red"];
-var stage_03 = ["blue","green","orange","turquoise","blue","green","blue"];
-var stage_04 = ["red","blue","red","green","orange","blue","turquoise"];
-var stage_05 = ["red","green","orange","blue","turquoise","green","blue","orange"];
-var stage_06 = ["turquoise","green","blue","orange","red","turquoise","green","blue","orange"];
-var stage_07 = ["blue","green","orange","turquoise","blue","green","blue","red","green","blue"];
-*/
-
-var stage_00 = ["red","blue","red"];
+var stage_00 = ["red","green","blue","red","green","blue","red"];
 var stage_01 = ["green","orange", "green"];
 var stage_02 = ["blue","turquoise", "blue"];
 var stage_03 = ["orange", "red", "orange"];
-var stage_04 = ["turquoise", "green", "turquoise"];
-var stage_05 = ["red","blue","red"];
-var stage_06 = ["green","orange", "green"];
-var stage_07 = ["blue","turquoise", "blue"];
-
+//var stage_04 = ["turquoise", "green", "turquoise"];
+//var stage_05 = ["red","blue","red"];
+//var stage_06 = ["green","orange", "green"];
+//var stage_07 = ["blue","turquoise", "blue"];
 
 //Announcer Output
 var currentStage = stage_00;
@@ -108,7 +96,8 @@ function updateColor(){
   }
 }
 
-//Button Input
+//Button Input checks if input is enabled. Then Checks if input and currentStage at the curretPart is the same.
+  //plays the needed sound if correct or the failed sound if not.
 function say(col){
   if(sg_input_enabled){
     console.log(col);
@@ -155,23 +144,6 @@ function completeStage(){
       currentStageID++;
       break;
     case 3:
-      currentStage = stage_04;
-      currentStageID++;
-      break;
-    case 4:
-      currentStage = stage_05;
-      currentStageID++;
-      break;
-    case 5:
-      currentStage = stage_06;
-      currentStageID++;
-      break;
-    case 6:
-      currentStage = stage_07;
-      currentStageID++;
-      break;
-    case 7:
-      //currentStage = stage_08;
       currentStageID++;
       clearInterval(switchTimer);
       clearTimeout(pauseTimer);
@@ -202,39 +174,21 @@ function setupPushingGame(id){
   switch (id) {
     case 0:
       $("#pg1").append($("#pgi_04"));
-      break;
-    case 1:
       $("#pg2").append($("#pgi_08"));
       break;
-    case 2:
+    case 1:
       $("#pg3").append($("#pgi_07"));
-      break;
-    case 3:
       $("#pg4").append($("#pgi_02"));
       break;
-    case 4:
+    case 2:
       $("#pg5").append($("#pgi_06"));
-      break;
-    case 5:
       $("#pg6").append($("#pgi_05"));
       break;
-    case 6:
+    case 3:
       $("#pg7").append($("#pgi_09"));
-      break;
-    case 7:
       $("#pg8").append($("#pgi_01"));
       break;
   }
-  /*
-  $("#pg1").append($("#pgi_04"));
-  $("#pg2").append($("#pgi_08"));
-  $("#pg3").append($("#pgi_07"));
-  $("#pg4").append($("#pgi_02"));
-  $("#pg5").append($("#pgi_06"));
-  $("#pg6").append($("#pgi_05"));
-  $("#pg7").append($("#pgi_09"));
-  $("#pg8").append($("#pgi_01"));
-  */
 }
 function selectSlot(id){
   switch (slotContent.indexOf(id)) {
@@ -298,6 +252,7 @@ $(document).ready(function(){
     x[slideIndex-1].style.display = "block";
     setTimeout(carousel, 3000); // Change image every 3 seconds
   }
+
   /* Simon says controls*/
   $('#sbtn0').on("click", function(){say("red");});
   $('#sbtn1').on("click", function(){say("green");});

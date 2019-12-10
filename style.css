@@ -4,14 +4,16 @@ body,html {height:100%; overflow-x: hidden;}
 body {
   width: 100%;
   position: absolute;
-  background: linear-gradient(to bottom, #6e529d 0%,#d97b93 100%);
+  background: linear-gradient(to top, #161426 0%,#454066 100%);
+}
+p, h1, h2, div{
+  font-family: arial, sans-serif;
 }
 
 #header-bar{
 	width: 100%;
-	background-color: rgba(0,255,0,0.35);
+	background-color: rgb(245, 245, 245);
 	height: auto;
-  border-radius: 5px;
 	font-size: 25pt;
 }
 
