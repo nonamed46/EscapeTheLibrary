@@ -8,7 +8,7 @@ function startGame(){
 }
 /*---------------------- simon says ----------------------*/
 //Plays Sound based on color input.
-function playSound(col){
+/*function playSound(col){
   switch (col) {
     case "red":
       $("#audio_01")[0].play();
@@ -35,6 +35,35 @@ function playSound(col){
       $("#audio_failed")[0].play();
   }
 }
+*/
+//Play Sound based on id
+function playSound(note){
+  switch (note) {
+    case "a5_2-4":
+      $("#audio_03")[0].play();
+      break;
+    case "fs5_1-4":
+      $("#audio_01")[0].play();
+      break;
+    case "g5_2-4":
+      $("#audio_02")[0].play();
+      break;
+    case "yellow":
+      $("#audio_04")[0].play();
+      break;
+    case "orange":
+      $("#audio_05")[0].play();
+      break;
+    case "turquoise":
+      $("#audio_06")[0].play();
+      break;
+    case "failed":
+      $("#audio_failed")[0].play();
+      break;
+    default:
+      $("#audio_failed")[0].play();
+  }
+}
 
 /* Color Pool:
 red
@@ -44,11 +73,25 @@ orange
 turquoise
 neutral
 */
+//Stage Timings in Seconds
+var stageTiming_00 =[0.8, 0.4, 0.4,0.8, 0.4, 0.4, 0.8];
+var stageTiming_01 =[0.8, 0.4, 0.4,0.8, 0.4, 0.4, 0.8];
+var stageTiming_02 =[0.8, 0.4, 0.4,0.8, 0.4, 0.4, 0.8];
+var stageTiming_03 =[0.8, 0.4, 0.4,0.8, 0.4, 0.4, 0.8];
 
+//Sounds within the Stage:
+var stageSound_00 = ["a5_2-4","fs5_1-4","g5_2-4","a5_2-4","fs5_1-4","g5_2-4","a5_2-4"];
+var stageSound_01 = ["a5_2-4","fs5_1-4","g5_2-4","a5_2-4","fs5_1-4","g5_2-4","a5_2-4"];
+var stageSound_02 = ["a5_2-4","fs5_1-4","g5_2-4","a5_2-4","fs5_1-4","g5_2-4","a5_2-4"];
+var stageSound_03 = ["a5_2-4","fs5_1-4","g5_2-4","a5_2-4","fs5_1-4","g5_2-4","a5_2-4"];
+
+//Stage inputs.
 var stage_00 = ["red","green","blue","red","green","blue","red"];
-var stage_01 = ["green","orange", "green"];
-var stage_02 = ["blue","turquoise", "blue"];
-var stage_03 = ["orange", "red", "orange"];
+var stage_01 = ["red","green","blue","red","green","blue","red"];
+var stage_02 = ["red","green","blue","red","green","blue","red"];
+var stage_03 = ["red","green","blue","red","green","blue","red"];
+
+
 //var stage_04 = ["turquoise", "green", "turquoise"];
 //var stage_05 = ["red","blue","red"];
 //var stage_06 = ["green","orange", "green"];
@@ -56,8 +99,10 @@ var stage_03 = ["orange", "red", "orange"];
 
 //Announcer Output
 var currentStage = stage_00;
+var currentStageSound = stageSound_00;
+var currentTiming = stageTiming_00;
 var currentStageID = 0;
-var currentInput = -1;
+var currentInput = -1; //position within the currentStage array.
 var currentColor = 'neutral';
 
 var switchTimer;
@@ -67,12 +112,13 @@ var color;
 
 var sg_input_enabled = false;
 var pg_input_enabled = false;
+
 //takes in the stage to play, resets the counter and begins the interval for changing announcer colors.
 function runCurrentStage(){
   //console.log("starting Stage" + currentStage);
   colorCounter = 0;
   currentInput = -1;
-  switchTimer = setInterval(updateColor, 1500);
+  switchTimer = setTimeout(updateColor, 1500);
 }
 
 //checks if all colors have been shown then either replaces the current color with the next of the currentStage array,
@@ -80,7 +126,6 @@ function runCurrentStage(){
 function updateColor(){
   if (colorCounter == currentStage.length) {
     //console.log("stage is done. resetting.");
-    clearInterval(switchTimer);
     $("#center_circle").attr('style', "fill:grey");
     currentColor = 'neutral';
     currentInput = -1;
@@ -91,8 +136,9 @@ function updateColor(){
     color = currentStage[colorCounter];
     $("#center_circle").attr('style', "fill:"+color);
     currentColor = color;
+    playSound(currentStageSound[colorCounter]);
+    switchTimer = setTimeout(updateColor, currentTiming[colorCounter] *1000);
     colorCounter++;
-    playSound(currentColor);
   }
 }
 
@@ -103,7 +149,7 @@ function say(col){
     console.log(col);
     currentInput++;
     if (currentStage[currentInput] == col) {
-      playSound(col);
+      playSound(currentStageSound[currentInput]);
       console.log("richtig! " + currentInput);
       if(currentInput == (currentStage.length-1)){
         completeStage();
@@ -118,7 +164,7 @@ function say(col){
 }
 //plays winning sound when stage is completed (called by a timeout delay)
 function playWinSound(){
-  if (currentStageID == 8) {
+  if (currentStageID == 4) {
     $("#win")[0].play();
   } else {
     $("#stg_complete")[0].play();
@@ -133,19 +179,24 @@ function completeStage(){
   switch (currentStageID) {
     case 0:
       currentStage = stage_01;
+      currentTiming = stageTiming_01;
+      currentStageSound = stageSound_01;
       currentStageID++;
       break;
     case 1:
       currentStage = stage_02;
+      currentTiming = stageTiming_02;
+      currentStageSound = stageSound_02;
       currentStageID++;
       break;
     case 2:
       currentStage = stage_03;
+      currentTiming = stageTiming_03;
+      currentStageSound = stageSound_03;
       currentStageID++;
       break;
     case 3:
       currentStageID++;
-      clearInterval(switchTimer);
       clearTimeout(pauseTimer);
       $("#center_circle").attr('style', "fill:grey");
       $("#s_game").addClass("hidden");
