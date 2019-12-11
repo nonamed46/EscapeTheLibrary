@@ -7,35 +7,6 @@ function startGame(){
   $("#intro").addClass("hidden");
 }
 /*---------------------- simon says ----------------------*/
-//Plays Sound based on color input.
-/*function playSound(col){
-  switch (col) {
-    case "red":
-      $("#audio_01")[0].play();
-      break;
-    case "green":
-      $("#audio_02")[0].play();
-      break;
-    case "blue":
-      $("#audio_03")[0].play();
-      break;
-    case "yellow":
-      $("#audio_04")[0].play();
-      break;
-    case "orange":
-      $("#audio_05")[0].play();
-      break;
-    case "turquoise":
-      $("#audio_06")[0].play();
-      break;
-    case "failed":
-      $("#audio_failed")[0].play();
-      break;
-    default:
-      $("#audio_failed")[0].play();
-  }
-}
-*/
 //Play Sound based on id
 function playSound(note){
   switch (note) {
@@ -91,12 +62,6 @@ var stage_01 = ["red","green","blue","red","green","blue","red"];
 var stage_02 = ["red","green","blue","red","green","blue","red"];
 var stage_03 = ["red","green","blue","red","green","blue","red"];
 
-
-//var stage_04 = ["turquoise", "green", "turquoise"];
-//var stage_05 = ["red","blue","red"];
-//var stage_06 = ["green","orange", "green"];
-//var stage_07 = ["blue","turquoise", "blue"];
-
 //Announcer Output
 var currentStage = stage_00;
 var currentStageSound = stageSound_00;
@@ -130,7 +95,7 @@ function updateColor(){
     currentColor = 'neutral';
     currentInput = -1;
     sg_input_enabled = true;
-    pauseTimer = setTimeout(runCurrentStage,5000+(currentStageID*700));
+    pauseTimer = setTimeout(runCurrentStage,8500);
   } else {
     sg_input_enabled = false;
     color = currentStage[colorCounter];
@@ -174,7 +139,7 @@ var winSoundTimer
 //Switches on the StageID to set the next stage.
 function completeStage(){
   console.log("Stage Completed! "+currentStageID);
-  winSoundTimer = setTimeout(playWinSound,570);
+  winSoundTimer = setTimeout(playWinSound,420);
   setupPushingGame(currentStageID);
   switch (currentStageID) {
     case 0:
