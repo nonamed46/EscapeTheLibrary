@@ -11,21 +11,27 @@ function startGame(){
 function playSound(note){
   switch (note) {
     case "a5_2-4":
+      $("#audio_03")[0].currentTime = 0;
       $("#audio_03")[0].play();
       break;
     case "fs5_1-4":
+      $("#audio_01")[0].currentTime = 0;
       $("#audio_01")[0].play();
       break;
     case "g5_2-4":
+      $("#audio_02")[0].currentTime = 0;
       $("#audio_02")[0].play();
       break;
     case "yellow":
+      $("#audio_04")[0].currentTime = 0;
       $("#audio_04")[0].play();
       break;
     case "orange":
+      $("#audio_05")[0].currentTime = 0;
       $("#audio_05")[0].play();
       break;
     case "turquoise":
+      $("#audio_06")[0].currentTime = 0;
       $("#audio_06")[0].play();
       break;
     case "failed":
@@ -45,10 +51,10 @@ turquoise
 neutral
 */
 //Stage Timings in Seconds
-var stageTiming_00 =[0.8, 0.4, 0.4,0.8, 0.4, 0.4, 0.8];
-var stageTiming_01 =[0.8, 0.4, 0.4,0.8, 0.4, 0.4, 0.8];
-var stageTiming_02 =[0.8, 0.4, 0.4,0.8, 0.4, 0.4, 0.8];
-var stageTiming_03 =[0.8, 0.4, 0.4,0.8, 0.4, 0.4, 0.8];
+var stageTiming_00 =[1.3, 0.7, 0.7, 1.3, 0.7, 0.7, 1.3];
+var stageTiming_01 =[1.3, 0.7, 0.7, 1.3, 0.7, 0.7, 1.3];
+var stageTiming_02 =[1.3, 0.7, 0.7, 1.3, 0.7, 0.7, 1.3];
+var stageTiming_03 =[1.3, 0.7, 0.7, 1.3, 0.7, 0.7, 1.3];
 
 //Sounds within the Stage:
 var stageSound_00 = ["a5_2-4","fs5_1-4","g5_2-4","a5_2-4","fs5_1-4","g5_2-4","a5_2-4"];
@@ -279,6 +285,7 @@ $(document).ready(function(){
   /* pushgame controls*/
   $('.pg-img').on("click", function(evt){
     if(!done && pg_input_enabled){
+      $("#move_tile")[0].currentTime = 0;
       $("#move_tile")[0].play();
       currImageID = evt.target.id; //Get the ID of the clicked element
       console.log(currImageID);
@@ -311,5 +318,5 @@ $(document).ready(function(){
   $("#audio_05")[0].volume = 0.5;
   $("#audio_06")[0].volume = 0.5;
   $("#audio_07")[0].volume = 0.5;
-  $("#audio_failed")[0].volume = 0.5;
+  $("#audio_failed")[0].volume = 0.3;
 });
