@@ -245,8 +245,10 @@ function compareArrays(){
   return true;
 }
 /*---------------------- Map / End Game ----------------------*/
-var pw1 = 31.200901;
-var pw2 = 29.909194;
+//var pw1 = 31.200901; //Alexandria
+//var pw2 = 29.909194;
+var pw1 = 49.954954; //Bayreuth
+var pw2 = 11.593674;
 function checkPW(){
   console.log();
   if (($("#input1").val() == pw1) && ($("#input2").val() == pw2)) {
