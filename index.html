@@ -8,24 +8,25 @@
   <meta name="author" content="Josef">
 
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animation.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="script.js"></script>
 </head>
 
 <body>
 
-  <div id="header-bar">
-    <p id="header-text">Phimesto      |      Goethe    |    Impressum    |     Datenschutz</p>
+  <div id="header-bar" class="scale-in-hor-left">
+    <p id="header-text" class="fade-in-left">Phimesto      |      Goethe    |    Impressum    |     Datenschutz</p>
   </div>
 
-  <div id="intro">
-    <div class="">
+  <div id="intro" class="scale-in-center">
+    <div class="fade-in-left2">
       <img class="mySlides" src="images/phimesto/p1.jpg">
       <img class="mySlides" src="images/phimesto/p5.jpg">
       <img class="mySlides" src="images/phimesto/p3.jpg">
       <img class="mySlides" src="images/phimesto/p4.jpg">
     </div>
-    <p>
+    <div id="intro_text" class="fade-in-left3">
       <img src="images/tel/tel_01.jpg" id="introimg" class="hidden">
       <h2>Willkommen!</h2>
 
@@ -38,8 +39,9 @@
       Folgt den Spuren!<br>
       Findet das Buch und löst das Rätsel!<br>
       Helft uns, Helft der gesamten Menschheit!<br><br>
-    </p>
-    <button id="playbtn" type="button" name="play" onclick="startGame()">Helft Phimesto!</button>
+
+      <button id="playbtn" type="button" name="play" onclick="startGame()">Helft Phimesto!</button>
+    </div>
   </div>
 
   <div id="s_game" class="hidden">
