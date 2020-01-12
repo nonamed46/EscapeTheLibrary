@@ -44,6 +44,7 @@ and for hidden div in which Overlay elements are stored invisible*/
 #playbtn{
 	display: block;
 	margin: 0 auto;
+  min-height: 35px;
 }
 
 /*---------------------- simon says ----------------------*/

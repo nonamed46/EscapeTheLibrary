@@ -24,29 +24,53 @@ function startGame(){
 //Play Sound based on id
 function playSound(note){
   switch (note) {
-    case "a5_2-4":
-      $("#audio_03")[0].currentTime = 0;
-      $("#audio_03")[0].play();
-      break;
-    case "fs5_1-4":
+    case "red01":
       $("#audio_01")[0].currentTime = 0;
       $("#audio_01")[0].play();
       break;
-    case "g5_2-4":
+    case "blue01":
       $("#audio_02")[0].currentTime = 0;
       $("#audio_02")[0].play();
       break;
-    case "yellow":
+    case "green01":
+      $("#audio_03")[0].currentTime = 0;
+      $("#audio_03")[0].play();
+      break;
+    case "orange01":
       $("#audio_04")[0].currentTime = 0;
       $("#audio_04")[0].play();
       break;
-    case "orange":
+    case "turquoise01":
       $("#audio_05")[0].currentTime = 0;
       $("#audio_05")[0].play();
       break;
-    case "turquoise":
+    case "turquoise02":
       $("#audio_06")[0].currentTime = 0;
       $("#audio_06")[0].play();
+      break;
+    case "orange02":
+      $("#audio_07")[0].currentTime = 0;
+      $("#audio_07")[0].play();
+      break;
+    case "orange03":
+      $("#audio_08")[0].currentTime = 0;
+      $("#audio_08")[0].play();
+      break;
+    case "green02":
+      $("#audio_09")[0].currentTime = 0;
+      $("#audio_09")[0].play();
+      break;
+    case "blue02":
+      $("#audio_10")[0].currentTime = 0;
+      $("#audio_10")[0].play();
+      break;
+    case "red02":
+      $("#audio_11")[0].currentTime = 0;
+      $("#audio_11")[0].play();
+      break;
+    case "turquoise03":
+      $("#audio_12")[0].currentTime = 0;
+      $("#audio_12")[0].play();
       break;
     case "failed":
       $("#audio_failed")[0].play();
@@ -65,22 +89,22 @@ turquoise
 neutral
 */
 //Stage Timings in Seconds
-var stageTiming_00 =[1.3, 0.7, 0.7, 1.3, 0.7, 0.7, 1.3];
-var stageTiming_01 =[1.3, 0.7, 0.7, 1.3, 0.7, 0.7, 1.3];
-var stageTiming_02 =[1.3, 0.7, 0.7, 1.3, 0.7, 0.7, 1.3];
-var stageTiming_03 =[1.3, 0.7, 0.7, 1.3, 0.7, 0.7, 1.3];
+var stageTiming_00 =[0.6, 0.6, 1.2, 1.2, 1.2];
+var stageTiming_01 =[0.8, 0.8, 0.8, 0.8, 0.8, 0.8];
+var stageTiming_02 =[1.2, 0.7, 0.7, 0.7, 0.7];
+var stageTiming_03 =[0.8, 0.8, 0.8, 0.8, 0.8, 0.8];
 
 //Sounds within the Stage:
-var stageSound_00 = ["a5_2-4","fs5_1-4","g5_2-4","a5_2-4","fs5_1-4","g5_2-4","a5_2-4"];
-var stageSound_01 = ["a5_2-4","fs5_1-4","g5_2-4","a5_2-4","fs5_1-4","g5_2-4","a5_2-4"];
-var stageSound_02 = ["a5_2-4","fs5_1-4","g5_2-4","a5_2-4","fs5_1-4","g5_2-4","a5_2-4"];
-var stageSound_03 = ["a5_2-4","fs5_1-4","g5_2-4","a5_2-4","fs5_1-4","g5_2-4","a5_2-4"];
+var stageSound_00 = ["red01","blue01","green01","orange01","turquoise01"];
+var stageSound_01 = ["red01","blue01","turquoise02","blue01","orange02","blue01"];
+var stageSound_02 = ["orange03","green02","blue02","red02","turquoise03"];
+var stageSound_03 = ["red01","blue01","turquoise02","blue01","orange02","blue01"];
 
 //Stage inputs.
-var stage_00 = ["red","green","blue","red","green","blue","red"];
-var stage_01 = ["red","green","blue","red","green","blue","red"];
-var stage_02 = ["red","green","blue","red","green","blue","red"];
-var stage_03 = ["red","green","blue","red","green","blue","red"];
+var stage_00 = ["red","blue","green","orange","turquoise"];
+var stage_01 = ["red","blue","turquoise","blue","orange","blue"];
+var stage_02 = ["orange","green","blue","red","turquoise"];
+var stage_03 = ["red","blue","turquoise","blue","orange","blue"];
 
 //Announcer Output
 var currentStage = stage_00;
@@ -186,6 +210,7 @@ function completeStage(){
       $("#center_circle").attr('style', "fill:grey");
       $("#s_game").addClass("hidden");
       $("#map_container").removeClass("hidden");
+      $("#map_container").css("animation-play-state", "running");
       currentColor = 'neutral';
       sg_input_enabled = false;
       pg_input_enabled = true;
@@ -270,6 +295,8 @@ function checkPW(){
     $("#pushing-game").addClass("hidden");
     $("#map_container").addClass("hidden");
     $("#outro").removeClass("hidden");
+    $("#gm2").css("animation-play-state", "running");
+    $("#outro_text").css("animation-play-state", "running");
   }
 }
 
@@ -334,5 +361,10 @@ $(document).ready(function(){
   $("#audio_05")[0].volume = 0.5;
   $("#audio_06")[0].volume = 0.5;
   $("#audio_07")[0].volume = 0.5;
+  $("#audio_08")[0].volume = 0.5;
+  $("#audio_09")[0].volume = 0.5;
+  $("#audio_10")[0].volume = 0.5;
+  $("#audio_11")[0].volume = 0.5;
+  $("#audio_12")[0].volume = 0.5;
   $("#audio_failed")[0].volume = 0.3;
 });
