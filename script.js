@@ -1,10 +1,24 @@
 /*---------------------- intro --------------------------*/
+var initTimer;
 //Executed when pressing "Play" button. hides Intro text and shows and starts "simon says" and the "pushing game" frame.
 function startGame(){
-  runCurrentStage();
   $("#s_game").removeClass("hidden");
   $("#pushing-game").removeClass("hidden");
   $("#intro").addClass("hidden");
+  //Plays Setup animations for Simon Says
+  $(".fade-in-fwd1").css("animation-play-state", "running");
+  $(".fade-in-fwd2").css("animation-play-state", "running");
+  $(".fade-in-fwd3").css("animation-play-state", "running");
+
+  $("#red_circle").css("animation-play-state", "running");
+  $("#green_circle").css("animation-play-state", "running");
+  $("#blue_circle").css("animation-play-state", "running");
+  $("#orange_circle").css("animation-play-state", "running");
+  $("#turquoise_circle").css("animation-play-state", "running");
+
+  $("#center_circle").css("animation-play-state", "running");
+
+  initTimer = setTimeout(runCurrentStage, 8300);
 }
 /*---------------------- simon says ----------------------*/
 //Play Sound based on id
@@ -274,7 +288,7 @@ $(document).ready(function(){
     slideIndex++;
     if (slideIndex > x.length) {slideIndex = 1}
     x[slideIndex-1].style.display = "block";
-    setTimeout(carousel, 3000); // Change image every 3 seconds
+    setTimeout(carousel, 3500); // Change image every 3.5 seconds
   }
 
   /* Simon says controls*/
