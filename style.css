@@ -17,6 +17,18 @@ p, h1, h2, div{
 	font-size: 25pt;
 }
 
+.menu-btn{
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 25pt;
+  border: none;
+  display: inline;
+  cursor: pointer;
+}
+.menu-btn:hover{
+  background-color: rgb(40, 43, 48);
+  color: white;
+}
+
 /*hides object. Used for not yet accessible video items
 and for hidden div in which Overlay elements are stored invisible*/
 .hidden{
@@ -45,6 +57,8 @@ and for hidden div in which Overlay elements are stored invisible*/
 	display: block;
 	margin: 0 auto;
   min-height: 35px;
+  cursor: pointer;
+  border-radius: 8px;
 }
 
 /*---------------------- simon says ----------------------*/
