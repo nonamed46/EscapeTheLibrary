@@ -78,6 +78,30 @@ function playSound(note){
       $("#audio_12")[0].currentTime = 0;
       $("#audio_12")[0].play();
       break;
+    case "green03":
+      $("#audio_13")[0].currentTime = 0;
+      $("#audio_13")[0].play();
+      break;
+    case "turquoise04":
+      $("#audio_14")[0].currentTime = 0;
+      $("#audio_14")[0].play();
+      break;
+    case "orange04":
+      $("#audio_15")[0].currentTime = 0;
+      $("#audio_15")[0].play();
+      break;
+    case "red03":
+      $("#audio_16")[0].currentTime = 0;
+      $("#audio_16")[0].play();
+      break;
+    case "blue03":
+      $("#audio_17")[0].currentTime = 0;
+      $("#audio_17")[0].play();
+      break;
+    case "red04":
+      $("#audio_18")[0].currentTime = 0;
+      $("#audio_18")[0].play();
+      break;
     case "failed":
       $("#audio_failed")[0].play();
       break;
@@ -98,19 +122,19 @@ neutral
 var stageTiming_00 =[0.6, 0.6, 1.2, 1.2, 1.2];
 var stageTiming_01 =[0.8, 0.8, 0.8, 0.8, 0.8, 0.8];
 var stageTiming_02 =[1.2, 0.7, 0.7, 0.7, 0.7];
-var stageTiming_03 =[0.8, 0.8, 0.8, 0.8, 0.8, 0.8];
+var stageTiming_03 =[1.2, 0.6, 0.6, 0.6, 0.6, 0.6, 1.2];
 
 //Sounds within the Stage:
 var stageSound_00 = ["red01","blue01","green01","orange01","turquoise01"];
 var stageSound_01 = ["red01","blue01","turquoise02","blue01","orange02","blue01"];
 var stageSound_02 = ["orange03","green02","blue02","red02","turquoise03"];
-var stageSound_03 = ["red01","blue01","turquoise02","blue01","orange02","blue01"];
+var stageSound_03 = ["green03","turquoise04","orange04","red03","blue03","red04","green03"];
 
 //Stage inputs.
 var stage_00 = ["red","blue","green","orange","turquoise"];
 var stage_01 = ["red","blue","turquoise","blue","orange","blue"];
 var stage_02 = ["orange","green","blue","red","turquoise"];
-var stage_03 = ["red","blue","turquoise","blue","orange","blue"];
+var stage_03 = ["green","turquoise","orange","red","blue","red","green"];
 
 //Announcer Output
 var currentStage = stage_00;
@@ -161,17 +185,14 @@ function updateColor(){
   //plays the needed sound if correct or the failed sound if not.
 function say(col){
   if(sg_input_enabled){
-    console.log(col);
     currentInput++;
     if (currentStage[currentInput] == col) {
       playSound(currentStageSound[currentInput]);
-      console.log("richtig! " + currentInput);
       if(currentInput == (currentStage.length-1)){
         completeStage();
         currentInput = -1;
       }
     } else {
-      console.log("leider falsch :(");
       currentInput = -1;
       playSound("failed");
     }
@@ -188,7 +209,6 @@ function playWinSound(){
 var winSoundTimer
 //Switches on the StageID to set the next stage.
 function completeStage(){
-  console.log("Stage Completed! "+currentStageID);
   winSoundTimer = setTimeout(playWinSound,420);
   setupPushingGame(currentStageID);
   switch (currentStageID) {
@@ -282,8 +302,6 @@ function selectSlot(id){
 function compareArrays(){
   for(i = 0; i < slotContent.length; i++){
     if (slotContent[i] != slotFinal[i]){
-      console.log(slotContent[i]);
-      console.log(slotFinal[i]);
       return false;
     }
   }
@@ -295,7 +313,6 @@ function compareArrays(){
 var pw1 = 49.954954; //Bayreuth
 var pw2 = 11.593674;
 function checkPW(){
-  console.log();
   if (($("#input1").val() == pw1) && ($("#input2").val() == pw2)) {
     $("#win")[0].play();
     $("#pushing-game").addClass("hidden");
@@ -337,9 +354,8 @@ $(document).ready(function(){
       $("#move_tile")[0].currentTime = 0;
       $("#move_tile")[0].play();
       currImageID = evt.target.id; //Get the ID of the clicked element
-      console.log(currImageID);
       currentSlot = selectSlot("#"+currImageID); //get the current slot based on that ID
-      console.log(currentSlot);
+
       $(".empty").append($("#"+currImageID)); //move Image to empty slot
       $(".empty").removeClass("empty"); //remove Empty class form container.
       $(currentSlot).addClass("empty"); //add Empty class to old image location as new empty slot.
@@ -348,14 +364,12 @@ $(document).ready(function(){
       ph1 = slotContent.indexOf(".empty");
       slotContent[ph0] = ".empty";
       slotContent[ph1] = "#"+currImageID;
-      console.log(slotContent);
 
       if(compareArrays()){
         done = true;
         $("#win")[0].play();
         $("#pg3").append($("#pgi_03"));
       }
-      console.log(done);
     }
   });
 
@@ -372,5 +386,11 @@ $(document).ready(function(){
   $("#audio_10")[0].volume = 0.5;
   $("#audio_11")[0].volume = 0.5;
   $("#audio_12")[0].volume = 0.5;
+  $("#audio_13")[0].volume = 0.5;
+  $("#audio_14")[0].volume = 0.5;
+  $("#audio_15")[0].volume = 0.5;
+  $("#audio_16")[0].volume = 0.5;
+  $("#audio_17")[0].volume = 0.5;
+  $("#audio_18")[0].volume = 0.5;
   $("#audio_failed")[0].volume = 0.3;
 });
