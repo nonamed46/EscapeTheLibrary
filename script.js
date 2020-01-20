@@ -5,11 +5,19 @@ function startGame(){
   $("#s_game").removeClass("hidden");
   $("#pushing-game").removeClass("hidden");
   $("#intro").addClass("hidden");
+
+  //Professorium
   $("#gm1").attr("src", "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41091.087303546185!2d11.538935300197018!3d49.93272057815806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a1a2c5a82d0319%3A0xda86df09d2d1e734!2sBayreuth!5e0!3m2!1sde!2sde!4v1576541176994!5m2!1sde!2sde");
   $("#gm2").attr("src", "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d185.50625324634558!2d11.593537730971038!3d49.95500025214987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a1a2e05fef3db7%3A0x638cc8cc4abca155!2sSpielmobil%20Professorium!5e1!3m2!1sde!2sde!4v1576541415067!5m2!1sde!2sde");
+  //Alexandria
   //"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109179.94647997755!2d29.884846034145003!3d31.224238672397384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c49126710fd3%3A0xb4e0cda629ee6bb9!2sAlexandria%2C%20Gouvernement%20al-Iskandariyya%2C%20%C3%84gypten!5e0!3m2!1sde!2sde!4v1574953841876!5m2!1sde!2sde"
   //"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.715573959166!2d29.90704421547005!3d31.200898769968404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c38da1d9e919%3A0xf984e1832e425a82!2sGoethe-Institut%20German%20Cultural%20Center!5e0!3m2!1sde!2sde!4v1574954052622!5m2!1sde!2sde"
-
+  //Kairo
+  //"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55251.33564056191!2d31.22344491853406!3d30.0595580983343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fa60b21beeb%3A0x79dfb296e8423bba!2sKairo%2C%20Gouvernement%20Al-Qahira%2C%20%C3%84gypten!5e0!3m2!1sde!2sde!4v1579484489125!5m2!1sde!2sde"
+  //"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.0956957141884!2d31.213162215450957!3d30.03411232601488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145846d5dd4ed013%3A0x54d9d096301e4753!2sGoethe-Institut%20Kairo!5e0!3m2!1sde!2sde!4v1579484537565!5m2!1sde!2sde"
+  //Tel Aviv
+  //"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54084.90495520479!2d34.76222657736099!3d32.08799940302179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4ca6193b7c1f%3A0xc1fb72a2c0963f90!2sTel%20Aviv-Jaffa%2C%20Israel!5e0!3m2!1sde!2sde!4v1579484596493!5m2!1sde!2sde"
+  //"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3380.6702460293295!2d34.786876115485036!3d32.078166526594735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4bb0c3de695d%3A0x78868c0641ea221!2sGoethe-Institut%20Tel%20Aviv!5e0!3m2!1sde!2sde!4v1579484633769!5m2!1sde!2sde"
   //Plays Setup animations for Simon Says
   $(".fade-in-fwd1").css("animation-play-state", "running");
   $(".fade-in-fwd2").css("animation-play-state", "running");
