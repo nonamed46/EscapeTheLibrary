@@ -1,0 +1,38 @@
+body,html {height:100%; overflow-x: hidden;}
+body {
+  width: 100%;
+  position: absolute;
+  background: linear-gradient(to top, #161426 0%,#454066 100%);
+}
+p, h1, h2, h3, div, button{
+  font-family: arial, sans-serif;
+}
+
+/*------------------------- intro -------------------------*/
+#intro{
+  min-width: 40%;
+  max-width: 60%;
+  width:auto;
+	margin: 0 auto;
+  margin-top: 20vh;
+  padding: 10px 10px;
+  border-radius: 5px;
+  background-color: rgba(242, 244, 247, 0.8);
+  text-align: center;
+  vertical-align: center;
+}
+
+.hintbtn{
+	display: inline-block;
+	/*margin: 0 auto;*/
+  margin: 0 10px;
+  min-height: 35px;
+  font-weight: bold;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.hints{
+  margin-top: 20px;
+  font-size: 19px;
+}
