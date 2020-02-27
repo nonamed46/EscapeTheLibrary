@@ -186,7 +186,7 @@ function updateColor(){
     currentColor = 'neutral';
     currentInput = -1;
     sg_input_enabled = true;
-    pauseTimer = setTimeout(runCurrentStage,9500);
+    pauseTimer = setTimeout(runCurrentStage,11000);
   } else {
     sg_input_enabled = false;
     color = currentStage[colorCounter];
