@@ -160,12 +160,21 @@ var color;
 var sg_input_enabled = false;
 var pg_input_enabled = false;
 
+var retries = 0; //used to count how many times the Stage reset has been delayed.
+
 //takes in the stage to play, resets the counter and begins the interval for changing announcer colors.
 function runCurrentStage(){
-  //console.log("starting Stage" + currentStage);
-  colorCounter = 0;
-  currentInput = -1;
-  switchTimer = setTimeout(updateColor, 1500);
+  //if player has input the third sound correctly, extend the pause duration until resetting.
+  if ( (currentInput>1) && (retries<3) ) {
+    retries++;
+    clearTimeout(pauseTimer);
+    pauseTimer = setTimeout(runCurrentStage,3500);
+  } else {
+    retries = 0;
+    colorCounter = 0;
+    currentInput = -1;
+    switchTimer = setTimeout(updateColor, 1500);
+  }
 }
 
 //checks if all colors have been shown then either replaces the current color with the next of the currentStage array,
@@ -177,7 +186,7 @@ function updateColor(){
     currentColor = 'neutral';
     currentInput = -1;
     sg_input_enabled = true;
-    pauseTimer = setTimeout(runCurrentStage,8500);
+    pauseTimer = setTimeout(runCurrentStage,9500);
   } else {
     sg_input_enabled = false;
     color = currentStage[colorCounter];
@@ -221,18 +230,24 @@ function completeStage(){
   setupPushingGame(currentStageID);
   switch (currentStageID) {
     case 0:
+      clearTimeout(pauseTimer);
+      pauseTimer = setTimeout(runCurrentStage,2500);
       currentStage = stage_01;
       currentTiming = stageTiming_01;
       currentStageSound = stageSound_01;
       currentStageID++;
       break;
     case 1:
+      clearTimeout(pauseTimer);
+      pauseTimer = setTimeout(runCurrentStage,2500);
       currentStage = stage_02;
       currentTiming = stageTiming_02;
       currentStageSound = stageSound_02;
       currentStageID++;
       break;
     case 2:
+      clearTimeout(pauseTimer);
+      pauseTimer = setTimeout(runCurrentStage,2500);
       currentStage = stage_03;
       currentTiming = stageTiming_03;
       currentStageSound = stageSound_03;
