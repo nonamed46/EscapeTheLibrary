@@ -16,7 +16,9 @@
 <body>
 
   <div id="header-bar" class="scale-in-hor-left">
-    <p id="header-text" class="fade-in-left"><button type="button" name="phimesto" class="menu-btn" onclick="location.href='./index.html';">Phimesto</button>      |      <button type="button" name="impressum" class="menu-btn" onclick="location.href='./law/impressum.html';">Impressum</button>    |     <button type="button" name="datenschutz" class="menu-btn" onclick="location.href='./law/datenschutz.html';">Datenschutz</button></p>
+    <p id="header-text" class="fade-in-left"><button type="button" name="phimesto" class="menu-btn" onclick="location.href='./index.html';">Phimesto</button>      |      <button type="button" name="impressum" class="menu-btn" onclick="location.href='./law/impressum.html';">Impressum</button>    |     <button type="button" name="datenschutz" class="menu-btn" onclick="location.href='./law/datenschutz.html';">Datenschutz</button>
+      <span id="lang-span"><button type="button" name="arabic" class="menu-btn" onclick="switchar()" dir="rtl">عربي</button> | <button type="button" name="deutsch" class="menu-btn" onclick="switchde()">deutsch</button> | <button type="button" name="hebrew" dir="rtl" class="menu-btn" onclick="switchheb()">עברית</button></span>
+    </p>
   </div>
 
   <div id="intro" class="scale-in-center">
@@ -27,19 +29,45 @@
       <img class="mySlides" src="images/phimesto/p4.jpg">
     </div>
     <div id="intro_text" class="fade-in-left3">
-      <img src="images/tel/tel_01.jpg" id="introimg" class="hidden">
-      <h2>Willkommen!</h2>
+      <div id="de_intro">
+        <h2>Willkommen!</h2>
 
-      <b>Wir sind Phimesto,</b> ein weltweiter Bund an Gelehrten. Seit Jahrhunderten wachen wir, von den Menschen unbemerkt, über die Geschicke der Menschheit.<br>
-      Unsere Aufgabe ist das Wissen zu bewahren und die reine Erkenntnis zu behüten!<br><br>
+        <b>Wir sind Phimesto,</b> ein weltweiter Bund an Gelehrten. Seit Jahrhunderten wachen wir, von den Menschen unbemerkt, über die Geschicke der Menschheit.<br>
+        Unsere Aufgabe ist das Wissen zu bewahren und die reine Erkenntnis zu behüten!<br><br>
 
-      Doch ein schlimmer Gegner hat unsere Macht gebrochen!<br> All das Wissen und die Erkenntnisse der Menschheit wurden in <i>DAS BUCH MIT SIEBEN SIEGELN</i> gesperrt und für uns unzugänglich gemacht!
-      <br><br>
-      Ihr seid unseren Hinweisen bis hierher gefolgt und habt damit bewiesen, dass Ihr würdig seid das Rätsel zu lösen und die Siegel zu brechen!<br><br>
-      Folgt nun den Spuren!<br>
-      Findet das Buch und brecht die Siegel!<br>
-      Helft uns. Helft der gesamten Menschheit!<br><br>
+        Doch ein schlimmer Gegner hat unsere Macht gebrochen!<br> All das Wissen und die Erkenntnisse der Menschheit wurden in <i>DAS BUCH MIT SIEBEN SIEGELN</i> gesperrt und für uns unzugänglich gemacht!
+        <br><br>
+        Ihr seid unseren Hinweisen bis hierher gefolgt und habt damit bewiesen, dass Ihr würdig seid das Rätsel zu lösen und die Siegel zu brechen!<br><br>
+        Folgt nun den Spuren!<br>
+        Findet das Buch und brecht die Siegel!<br>
+        Helft uns. Helft der gesamten Menschheit!<br><br>
+      </div>
+      <div id="ar_intro" class="hidden" dir="rtl">
+        <h2>Willkommen! auf arabisch</h2>
 
+        <b>Wir sind Phimesto,</b> ein weltweiter Bund an Gelehrten. Seit Jahrhunderten wachen wir, von den Menschen unbemerkt, über die Geschicke der Menschheit.<br>
+        Unsere Aufgabe ist das Wissen zu bewahren und die reine Erkenntnis zu behüten!<br><br>
+
+        Doch ein schlimmer Gegner hat unsere Macht gebrochen!<br> All das Wissen und die Erkenntnisse der Menschheit wurden in <i>DAS BUCH MIT SIEBEN SIEGELN</i> gesperrt und für uns unzugänglich gemacht!
+        <br><br>
+        Ihr seid unseren Hinweisen bis hierher gefolgt und habt damit bewiesen, dass Ihr würdig seid das Rätsel zu lösen und die Siegel zu brechen!<br><br>
+        Folgt nun den Spuren!<br>
+        Findet das Buch und brecht die Siegel!<br>
+        Helft uns. Helft der gesamten Menschheit!<br><br>
+      </div>
+      <div id="heb_intro" class="hidden" dir="rtl">
+        <h2>Willkommen! auf hebräisch</h2>
+
+        <b>Wir sind Phimesto,</b> ein weltweiter Bund an Gelehrten. Seit Jahrhunderten wachen wir, von den Menschen unbemerkt, über die Geschicke der Menschheit.<br>
+        Unsere Aufgabe ist das Wissen zu bewahren und die reine Erkenntnis zu behüten!<br><br>
+
+        Doch ein schlimmer Gegner hat unsere Macht gebrochen!<br> All das Wissen und die Erkenntnisse der Menschheit wurden in <i>DAS BUCH MIT SIEBEN SIEGELN</i> gesperrt und für uns unzugänglich gemacht!
+        <br><br>
+        Ihr seid unseren Hinweisen bis hierher gefolgt und habt damit bewiesen, dass Ihr würdig seid das Rätsel zu lösen und die Siegel zu brechen!<br><br>
+        Folgt nun den Spuren!<br>
+        Findet das Buch und brecht die Siegel!<br>
+        Helft uns. Helft der gesamten Menschheit!<br><br>
+      </div>
       <button id="playbtn" type="button" name="play" onclick="startGame()">Helft Phimesto!</button><br>
       <i>Diese Seite benötigt zwingend Google Maps. Durch Klicken auf den Button stimmt ihr den <a href="./law/datenschutz.html" target="_blank">Datenschutzbedingungen (Link)</a> zu.</i>
     </div>
@@ -195,15 +223,37 @@
     <br><br>
     <iframe id="gm2" class="gmap_canvas hidden" src="" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 
-    <p id="outro_text">
-      Ja! Genau dort liegt das Buch!<br> Ihr habt das Rätsel tatsächlich gelöst und den Standort offengelegt! <br>
-      Diese Ungeheuer haben uns ausgeraubt und sich aufs Schlimmste an unserem Buch vergangen. Der Zugang ist verschlossen.<br>
-      Die Siegel müssen gebrochen und die Steine zurückgeführt werden, bevor diese Räuber Mephisto, den finsteren Herrn der Dämonen beschwören können!<br>
-      Ihr habt Euch würdig erwiesen, doch diese Aufgabe kann nicht allein bewältigt werden.
-      Es braucht eine Gruppe Auserwählter mit reinem Gemüt um sich der Herausforderung zu stellen und die 5 Siegelsteine aus den Klauen des Bösen zu befreien.
-      Eilt zum Buch, die Zeit ist knapp!<br>
-      Phimesto wird Euch zur Seite stehen! <br>
-    </p>
+    <div id="outro_text">
+      <p id="de_outro">
+        Ja! Genau dort liegt das Buch!<br> Ihr habt das Rätsel tatsächlich gelöst und den Standort offengelegt! <br>
+        Diese Ungeheuer haben uns ausgeraubt und sich aufs Schlimmste an unserem Buch vergangen. Der Zugang ist verschlossen.<br>
+        Die Siegel müssen gebrochen und die Steine zurückgeführt werden, bevor diese Räuber Mephisto, den finsteren Herrn der Dämonen beschwören können!<br>
+        Ihr habt Euch würdig erwiesen, doch diese Aufgabe kann nicht allein bewältigt werden.
+        Es braucht eine Gruppe Auserwählter mit reinem Gemüt um sich der Herausforderung zu stellen und die 5 Siegelsteine aus den Klauen des Bösen zu befreien.
+        Eilt zum Buch, die Zeit ist knapp!<br>
+        Phimesto wird Euch zur Seite stehen! <br>
+      </p>
+      <p id="ar_outro" class="hidden" dir="rtl">
+        لقد أثبتم بالفعل أنكم جديرون بالوقوف إلى جانبنا – نحن أخوية فيمستو – في أشد الأزمات.<br> لقد نجحتم حقا! لقد استطعتم حل الألغاز واكتشاف مكان كتاب الأختام السبعة! <br>
+        اسمعوا ما حدث: مجموعة من الأشرار تآمروا سويًا على إلحاق الضرر بكتابنا.<br>
+        لقد انقضوا علينا وسرقوا ما لم يُقدّر له أن يُسرق، ما كان نقيًا في الماضي يرقد هنالك الآن ممزق وملطخ.<br>
+        لقد فض الأشرار الأختام وفعلوا كل ما بوسعهم من أجل تحرير هو الذي يريد إذلال البشرية، أصبح الطريق إلى مصدر المعرفة موصدًا أمامنا.
+        إن تدنيس الكتاب جعل إعادة وضع الأختام مرة أخرى مستحيل بالنسبة لنا، فقط مجموعة من المصطفين – أمثالكم – يمكن أن يكون لديها القوة والحكمة لحل ألغاز الأختام وإعادتها إلى موضعها المحدد سلفًا.
+        بذلك تعيدون الأختام الخمسة إلى مكانها الأصلي مجددًا من أجل استعادة نظام الكون مرة أخرى، وتحرير قدر البشرية بأسرها من قبضة ميفستو، أكثر الشياطين بشاعة.<br>
+        لكن لا يمكنكم النجاح في ذلك بمفردكم! خمس أحجار أختام، يحتاج الأمر لخمس مصطفين من ذوي العقول النقية من أجل التصدي لمهام إنقاذ الكتاب. <br>
+        والآن هلموا! فالوقت ضيق وقوة أشر الشياطين تزداد من يوم لآخر.<br>
+        فليكن فيمستو معكم! <br>
+      </p>
+      <p id="heb_outro" class="hidden" dir="rtl">
+        HEBRÄISCH Ja! Genau dort liegt das Buch!<br> Ihr habt das Rätsel tatsächlich gelöst und den Standort offengelegt! <br>
+        Diese Ungeheuer haben uns ausgeraubt und sich aufs Schlimmste an unserem Buch vergangen. Der Zugang ist verschlossen.<br>
+        Die Siegel müssen gebrochen und die Steine zurückgeführt werden, bevor diese Räuber Mephisto, den finsteren Herrn der Dämonen beschwören können!<br>
+        Ihr habt Euch würdig erwiesen, doch diese Aufgabe kann nicht allein bewältigt werden.
+        Es braucht eine Gruppe Auserwählter mit reinem Gemüt um sich der Herausforderung zu stellen und die 5 Siegelsteine aus den Klauen des Bösen zu befreien.
+        Eilt zum Buch, die Zeit ist knapp!<br>
+        Phimesto wird Euch zur Seite stehen! <br>
+      </p>
+    </div>
   </div>
 
 </body>

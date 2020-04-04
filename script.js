@@ -162,6 +162,32 @@ var pg_input_enabled = false;
 
 var retries = 0; //used to count how many times the Stage reset has been delayed.
 
+//Language Selection
+function switchar(){
+  $("#ar_intro").removeClass("hidden");
+  $("#ar_outro").removeClass("hidden");
+  $("#de_intro").addClass("hidden");
+  $("#heb_intro").addClass("hidden");
+  $("#de_outro").addClass("hidden");
+  $("#heb_outro").addClass("hidden");
+}
+function switchde(){
+  $("#de_intro").removeClass("hidden");
+  $("#de_outro").removeClass("hidden");
+  $("#ar_intro").addClass("hidden");
+  $("#heb_intro").addClass("hidden");
+  $("#ar_outro").addClass("hidden");
+  $("#heb_outro").addClass("hidden");
+}
+function switchheb(){
+  $("#heb_intro").removeClass("hidden");
+  $("#heb_outro").removeClass("hidden");
+  $("#de_intro").addClass("hidden");
+  $("#ar_intro").addClass("hidden");
+  $("#de_outro").addClass("hidden");
+  $("#ar_outro").addClass("hidden");
+}
+
 //takes in the stage to play, resets the counter and begins the interval for changing announcer colors.
 function runCurrentStage(){
   //if player has input the third sound correctly, extend the pause duration until resetting.
