@@ -16,8 +16,35 @@
 <body>
 
   <div id="header-bar" class="scale-in-hor-left">
-    <p id="header-text" class="fade-in-left"><button type="button" name="phimesto" class="menu-btn" onclick="location.href='./index.html';">Phimesto</button>      |      <button type="button" name="impressum" class="menu-btn" onclick="location.href='./law/impressum.html';">Impressum</button>    |     <button type="button" name="datenschutz" class="menu-btn" onclick="location.href='./law/datenschutz.html';">Datenschutz</button>
-      <span id="lang-span"><button type="button" name="arabic" class="menu-btn" onclick="switchar()" dir="rtl">عربي</button> | <button type="button" name="deutsch" class="menu-btn" onclick="switchde()">deutsch</button> | <button type="button" name="hebrew" dir="rtl" class="menu-btn" onclick="switchheb()">עברית</button></span>
+    <p id="de_header" class="fade-in-left, hidden">
+      <button type="button" name="phimesto" class="menu-btn" onclick="location.href='./index.html';">Phimesto</button>      |
+      <button type="button" name="impressum" class="menu-btn" onclick="location.href='./law/impressum.html';">Impressum</button>    |
+      <button type="button" name="datenschutz" class="menu-btn" onclick="location.href='./law/datenschutz.html';">Datenschutz</button>
+      <span class="lang-span">
+        <button type="button" name="arabic" class="menu-btn" onclick="switchar()" dir="rtl">عربي</button> |
+        <button type="button" name="deutsch" class="menu-btn" onclick="switchde()">deutsch</button> |
+        <button type="button" name="hebrew" dir="rtl" class="menu-btn" onclick="switchheb()">עברית</button>
+      </span>
+    </p>
+    <p id="ar_header" class="fade-in-left">
+      <button type="button" name="phimesto" class="menu-btn" dir="rtl" onclick="location.href='./index.html';">Phimesto</button>      |
+      <button type="button" name="impressum" class="menu-btn" dir="rtl" onclick="location.href='./law/impressum.html';">Impressum</button>    |
+      <button type="button" name="datenschutz" class="menu-btn" dir="rtl" onclick="location.href='./law/datenschutz.html';">Datenschutz</button>
+      <span class="lang-span">
+        <button type="button" name="arabic" class="menu-btn" onclick="switchar()" dir="rtl">عربي</button> |
+        <button type="button" name="deutsch" class="menu-btn" onclick="switchde()">deutsch</button> |
+        <button type="button" name="hebrew" dir="rtl" class="menu-btn" onclick="switchheb()">עברית</button>
+      </span>
+    </p>
+    <p id="heb_header" class="fade-in-left, hidden">
+      <button type="button" name="phimesto" class="menu-btn" dir="rtl" onclick="location.href='./index.html';">Phimesto</button>      |
+      <button type="button" name="impressum" class="menu-btn" dir="rtl" onclick="location.href='./law/impressum.html';">Impressum</button>    |
+      <button type="button" name="datenschutz" class="menu-btn" dir="rtl" onclick="location.href='./law/datenschutz.html';">Datenschutz</button>
+      <span class="lang-span">
+        <button type="button" name="arabic" class="menu-btn" onclick="switchar()" dir="rtl">عربي</button> |
+        <button type="button" name="deutsch" class="menu-btn" onclick="switchde()">deutsch</button> |
+        <button type="button" name="hebrew" dir="rtl" class="menu-btn" onclick="switchheb()">עברית</button>
+      </span>
     </p>
   </div>
 
@@ -29,7 +56,7 @@
       <img class="mySlides" src="images/phimesto/p4.jpg">
     </div>
     <div id="intro_text" class="fade-in-left3">
-      <div id="de_intro">
+      <div id="de_intro" class="hidden">
         <h2>Willkommen!</h2>
 
         <b>Wir sind Phimesto,</b> ein weltweiter Bund an Gelehrten. Seit Jahrhunderten wachen wir, von den Menschen unbemerkt, über die Geschicke der Menschheit.<br>
@@ -42,7 +69,7 @@
         Findet das Buch und brecht die Siegel!<br>
         Helft uns. Helft der gesamten Menschheit!<br><br>
       </div>
-      <div id="ar_intro" class="hidden" dir="rtl">
+      <div id="ar_intro" dir="rtl">
         <h2>Willkommen! auf arabisch</h2>
 
         <b>Wir sind Phimesto,</b> ein weltweiter Bund an Gelehrten. Seit Jahrhunderten wachen wir, von den Menschen unbemerkt, über die Geschicke der Menschheit.<br>
@@ -68,8 +95,12 @@
         Findet das Buch und brecht die Siegel!<br>
         Helft uns. Helft der gesamten Menschheit!<br><br>
       </div>
-      <button id="playbtn" type="button" name="play" onclick="startGame()">Helft Phimesto!</button><br>
-      <i>Diese Seite benötigt zwingend Google Maps. Durch Klicken auf den Button stimmt ihr den <a href="./law/datenschutz.html" target="_blank">Datenschutzbedingungen (Link)</a> zu.</i>
+      <button id="de_play" class="playbtn" type="button" name="play" onclick="startGame()">Helft Phimesto!</button><br>
+      <button id="ar_play" class="playbtn" type="button" name="play" onclick="startGame()">Helft Phimesto!</button><br>
+      <button id="heb_play" class="playbtn" type="button" name="play" onclick="startGame()">Helft Phimesto!</button><br>
+      <i id="de_data">Diese Seite benötigt zwingend Google Maps. Durch Klicken auf den Button stimmt ihr den <a href="./law/datenschutz.html" target="_blank">Datenschutzbedingungen (Link)</a> zu.</i>
+      <p id="ar_data" dir="rtl">Diese Seite benötigt zwingend Google Maps. Durch Klicken auf den Button stimmt ihr den <a href="./law/datenschutz.html" target="_blank">Datenschutzbedingungen (Link)</a> zu.</p>
+      <p id="heb_data" dir="rtl">Diese Seite benötigt zwingend Google Maps. Durch Klicken auf den Button stimmt ihr den <a href="./law/datenschutz.html" target="_blank">Datenschutzbedingungen (Link)</a> zu.</p>
     </div>
   </div>
 
@@ -213,7 +244,7 @@
     <div class="centered">
       <input id="input1" type="text" name="coord1" value="">
       <input id="input2" type="text" name="coord2" value="">
-      <button id="pwbtn" type="button" name="pwbutton" onclick="checkPW()">send</button>
+      <button id="pwbtn" type="button" name="pwbutton" onclick="checkPW()">&#128270;</button>
       <br><br>
     </div>
     <iframe id="gm1" class="gmap_canvas" src="" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
@@ -224,7 +255,7 @@
     <iframe id="gm2" class="gmap_canvas hidden" src="" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 
     <div id="outro_text">
-      <p id="de_outro">
+      <p id="de_outro"  class="hidden">
         Ja! Genau dort liegt das Buch!<br> Ihr habt das Rätsel tatsächlich gelöst und den Standort offengelegt! <br>
         Diese Ungeheuer haben uns ausgeraubt und sich aufs Schlimmste an unserem Buch vergangen. Der Zugang ist verschlossen.<br>
         Die Siegel müssen gebrochen und die Steine zurückgeführt werden, bevor diese Räuber Mephisto, den finsteren Herrn der Dämonen beschwören können!<br>
@@ -233,7 +264,7 @@
         Eilt zum Buch, die Zeit ist knapp!<br>
         Phimesto wird Euch zur Seite stehen! <br>
       </p>
-      <p id="ar_outro" class="hidden" dir="rtl">
+      <p id="ar_outro" dir="rtl">
         لقد أثبتم بالفعل أنكم جديرون بالوقوف إلى جانبنا – نحن أخوية فيمستو – في أشد الأزمات.<br> لقد نجحتم حقا! لقد استطعتم حل الألغاز واكتشاف مكان كتاب الأختام السبعة! <br>
         اسمعوا ما حدث: مجموعة من الأشرار تآمروا سويًا على إلحاق الضرر بكتابنا.<br>
         لقد انقضوا علينا وسرقوا ما لم يُقدّر له أن يُسرق، ما كان نقيًا في الماضي يرقد هنالك الآن ممزق وملطخ.<br>

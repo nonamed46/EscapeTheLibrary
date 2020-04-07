@@ -54,7 +54,7 @@ and for hidden div in which Overlay elements are stored invisible*/
   background-color: rgba(242, 244, 247, 0.8);
 }
 
-#playbtn{
+.playbtn{
 	display: block;
 	margin: 0 auto;
   min-height: 40px;

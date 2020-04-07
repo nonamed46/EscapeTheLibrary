@@ -164,26 +164,53 @@ var retries = 0; //used to count how many times the Stage reset has been delayed
 
 //Language Selection
 function switchar(){
+  $("#ar_header").removeClass("hidden");
   $("#ar_intro").removeClass("hidden");
+  $("#ar_play").removeClass("hidden");
+  $("#ar_data").removeClass("hidden");
   $("#ar_outro").removeClass("hidden");
+  $("#de_header").addClass("hidden");
+  $("#heb_header").addClass("hidden");
   $("#de_intro").addClass("hidden");
   $("#heb_intro").addClass("hidden");
+  $("#de_play").addClass("hidden");
+  $("#heb_play").addClass("hidden");
+  $("#de_data").addClass("hidden");
+  $("#heb_data").addClass("hidden");
   $("#de_outro").addClass("hidden");
   $("#heb_outro").addClass("hidden");
 }
 function switchde(){
+  $("#de_header").removeClass("hidden");
   $("#de_intro").removeClass("hidden");
+  $("#de_play").removeClass("hidden");
+  $("#de_data").removeClass("hidden");
   $("#de_outro").removeClass("hidden");
+  $("#ar_header").addClass("hidden");
+  $("#heb_header").addClass("hidden");
   $("#ar_intro").addClass("hidden");
   $("#heb_intro").addClass("hidden");
+  $("#ar_play").addClass("hidden");
+  $("#heb_play").addClass("hidden");
+  $("#ar_data").addClass("hidden");
+  $("#heb_data").addClass("hidden");
   $("#ar_outro").addClass("hidden");
   $("#heb_outro").addClass("hidden");
 }
 function switchheb(){
+  $("#heb_header").removeClass("hidden");
   $("#heb_intro").removeClass("hidden");
+  $("#heb_play").removeClass("hidden");
+  $("#heb_data").removeClass("hidden");
   $("#heb_outro").removeClass("hidden");
+  $("#de_header").addClass("hidden");
+  $("#ar_header").addClass("hidden");
   $("#de_intro").addClass("hidden");
   $("#ar_intro").addClass("hidden");
+  $("#de_play").addClass("hidden");
+  $("#ar_play").addClass("hidden");
+  $("#de_data").addClass("hidden");
+  $("#ar_data").addClass("hidden");
   $("#de_outro").addClass("hidden");
   $("#ar_outro").addClass("hidden");
 }
